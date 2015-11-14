@@ -11,7 +11,7 @@ class SenderBuilder extends \Magento\Sales\Model\Order\Email\SenderBuilder
         \Magento\Sales\Model\Order\Email\Container\Template $templateContainer,
         \Magento\Sales\Model\Order\Email\Container\IdentityInterface $identityContainer,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
-        \Fooman\EmailAttachments\Model\AttachmentContainerInterface $attachmentContainer
+        \Fooman\EmailAttachments\Model\Api\AttachmentContainerInterface $attachmentContainer
     ) {
         parent::__construct($templateContainer, $identityContainer, $transportBuilder);
         $this->attachmentContainer = $attachmentContainer;

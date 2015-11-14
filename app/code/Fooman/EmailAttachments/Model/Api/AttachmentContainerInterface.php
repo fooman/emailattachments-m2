@@ -1,8 +1,6 @@
 <?php
 
-namespace Fooman\EmailAttachments\Model;
-
-use Fooman\EmailAttachments\Model\Api\AttachmentInterface;
+namespace Fooman\EmailAttachments\Model\Api;
 
 interface AttachmentContainerInterface
 {

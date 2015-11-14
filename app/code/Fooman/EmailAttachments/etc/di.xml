@@ -9,6 +9,6 @@
                 type="Fooman\EmailAttachments\Model\Email\Sender\InvoiceSender"/>
 
     <!-- module introduced preferences -->
-    <preference for="Fooman\EmailAttachments\Model\AttachmentContainerInterface"
+    <preference for="Fooman\EmailAttachments\Model\Api\AttachmentContainerInterface"
                 type="Fooman\EmailAttachments\Model\AttachmentContainer"/>
 </config>
