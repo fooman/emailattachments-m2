@@ -16,4 +16,6 @@ interface AttachmentContainerInterface
     public function addAttachment(AttachmentInterface $attachment);
 
     public function getAttachments();
+
+    public function resetAttachments();
 }

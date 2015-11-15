@@ -6,9 +6,13 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
 {
     protected $attachmentFactory;
 
+    protected $scopeConfig;
+
     public function __construct(
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Fooman\EmailAttachments\Model\AttachmentFactory $attachmentFactory
     ) {
+        $this->scopeConfig = $scopeConfig;
         $this->attachmentFactory = $attachmentFactory;
     }
 

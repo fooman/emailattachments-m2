@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sales_email">
+            <group id="invoice">
+                <field id="attachpdf"
+                       translate="label"
+                       type="select"
+                       sortOrder="200"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attach Invoice as PDF</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip>When set to Yes, your invoice pdf document will be
+                        automatically attached to the invoice email.
+                    </tooltip>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

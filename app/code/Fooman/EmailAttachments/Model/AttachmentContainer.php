@@ -20,4 +20,9 @@ class AttachmentContainer implements Api\AttachmentContainerInterface
     {
         return $this->attachments;
     }
+
+    public function resetAttachments()
+    {
+        $this->attachments = [];
+    }
 }

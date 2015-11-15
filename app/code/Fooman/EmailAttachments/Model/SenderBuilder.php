@@ -29,8 +29,22 @@ class SenderBuilder extends \Magento\Sales\Model\Order\Email\SenderBuilder
             foreach ($this->attachmentContainer->getAttachments() as $attachment) {
                 $this->transportBuilder->addAttachment($attachment);
             }
+            $this->attachmentContainer->resetAttachments();
         }
 
         parent::send();
+    }
+
+    public function sendCopyTo()
+    {
+        if ($this->attachmentContainer->hasAttachments()) {
+            foreach ($this->attachmentContainer->getAttachments() as $attachment) {
+                $this->transportBuilder->addAttachment($attachment);
+            }
+            $this->attachmentContainer->resetAttachments();
+        }
+        parent::sendCopyTo();
+        $this->attachmentContainer->resetAttachments();
+
     }
 }

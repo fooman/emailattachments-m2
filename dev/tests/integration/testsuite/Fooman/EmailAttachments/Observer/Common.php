@@ -28,14 +28,17 @@ class Common extends \PHPUnit_Framework_TestCase
     public function getAttachmentOfType($email, $type)
     {
 
-        foreach ($email['MIME']['Parts'] as $part) {
-            if (!isset($type, $part['Headers']['Content-Type'])) {
-                continue;
-            }
-            if ($part['Headers']['Content-Type'][0] == $type) {
-                return $part;
+        if (isset($email['MIME']['Parts'])) {
+            foreach ($email['MIME']['Parts'] as $part) {
+                if (!isset($type, $part['Headers']['Content-Type'])) {
+                    continue;
+                }
+                if ($part['Headers']['Content-Type'][0] == $type) {
+                    return $part;
+                }
             }
         }
+
         return false;
     }
 }
