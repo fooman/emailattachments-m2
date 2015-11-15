@@ -18,14 +18,6 @@ class BeforeSendInvoiceObserver extends AbstractObserver
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $pdf = $this->pdfRenderer->getPdf([$observer->getInvoice()]);
-
-        $attachment = $this->attachmentFactory->create(
-            [
-                'content'  => $pdf->render(),
-                'mimeType' => 'application/pdf',
-                'fileName' => 'testing.pdf'
-            ]
-        );
-        $observer->getEvent()->getAttachmentContainer()->addAttachment($attachment);
+        $this->attachPdf($pdf, $observer);
     }
 }
