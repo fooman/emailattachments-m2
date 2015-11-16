@@ -19,6 +19,21 @@
                     </tooltip>
                 </field>
             </group>
+            <group id="invoice_comment">
+                <field id="attachpdf"
+                       translate="label"
+                       type="select"
+                       sortOrder="200"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attach Invoice as PDF</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip>When set to Yes, your invoice pdf document will be
+                        automatically attached to the invoice email.
+                    </tooltip>
+                </field>
+            </group>
         </section>
     </system>
 </config>

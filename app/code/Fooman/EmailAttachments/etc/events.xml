@@ -13,4 +13,10 @@
         <observer name="fooman_emailattachments_before_send_invoice_observer"
                   instance="Fooman\EmailAttachments\Observer\BeforeSendInvoiceObserver"/>
     </event>
+    <event name="fooman_emailattachments_before_send_invoice_comment">
+        <observer name="fooman_emailattachments_before_send_invoice_comment_observer"
+                  instance="Fooman\EmailAttachments\Observer\BeforeSendInvoiceCommentObserver"/>
+    </event>
+
+
 </config>
