@@ -4,6 +4,36 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <section id="sales_email">
+            <group id="order">
+                <field id="attachpdf"
+                       translate="label"
+                       type="select"
+                       sortOrder="200"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <if_module_enabled>Fooman_PrintOrderPdf</if_module_enabled>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Order as PDF</label>
+                    <tooltip>When set to Yes, your invoice pdf document will be
+                        automatically attached to the invoice email.</tooltip>
+                </field>
+            </group>
+            <group id="order_comment">
+                <field id="attachpdf"
+                       translate="label"
+                       type="select"
+                       sortOrder="200"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <if_module_enabled>Fooman_PrintOrderPdf</if_module_enabled>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Order as PDF</label>
+                    <tooltip>When set to Yes, your invoice pdf document will be
+                        automatically attached to the invoice email.</tooltip>
+                </field>
+            </group>
             <group id="invoice">
                 <field id="attachpdf"
                        translate="label"
@@ -15,8 +45,7 @@
                     <label>Attach Invoice as PDF</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <tooltip>When set to Yes, your invoice pdf document will be
-                        automatically attached to the invoice email.
-                    </tooltip>
+                        automatically attached to the invoice email.</tooltip>
                 </field>
             </group>
             <group id="invoice_comment">
@@ -30,8 +59,63 @@
                     <label>Attach Invoice as PDF</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <tooltip>When set to Yes, your invoice pdf document will be
-                        automatically attached to the invoice email.
-                    </tooltip>
+                        automatically attached to the invoice email.</tooltip>
+                </field>
+            </group>
+            <group id="shipment">
+                <field id="attachpdf"
+                       translate="label"
+                       type="select"
+                       sortOrder="200"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attach Packing Slip as PDF</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip>When set to Yes, your packing slip pdf document will be
+                        automatically attached to the shipment email.</tooltip>
+                </field>
+            </group>
+            <group id="shipment_comment">
+                <field id="attachpdf"
+                       translate="label"
+                       type="select"
+                       sortOrder="200"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attach Invoice as PDF</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip>When set to Yes, your packing slip pdf document will be
+                        automatically attached to the shipment email.</tooltip>
+                </field>
+            </group>
+            <group id="creditmemo">
+                <field id="attachpdf"
+                       translate="label"
+                       type="select"
+                       sortOrder="200"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Credit Memo as PDF</label>
+                    <tooltip>When set to Yes, your packing slip pdf document will be
+                        automatically attached to the shipment comment email.</tooltip>
+                </field>
+            </group>
+            <group id="creditmemo_comment">
+                <field id="attachpdf"
+                       translate="label"
+                       type="select"
+                       sortOrder="200"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Credit Memo as PDF</label>
+                    <tooltip>When set to Yes, your packing slip pdf document will be
+                        automatically attached to the shipment comment email.</tooltip>
                 </field>
             </group>
         </section>

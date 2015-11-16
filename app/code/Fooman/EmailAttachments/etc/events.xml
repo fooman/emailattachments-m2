@@ -9,6 +9,17 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!--Order Emails-->
+    <event name="fooman_emailattachments_before_send_order">
+        <observer name="fooman_emailattachments_before_send_order_observer"
+                  instance="Fooman\EmailAttachments\Observer\BeforeSendOrderObserver"/>
+    </event>
+    <event name="fooman_emailattachments_before_send_order_comment">
+        <observer name="fooman_emailattachments_before_send_order_comment_observer"
+                  instance="Fooman\EmailAttachments\Observer\BeforeSendOrderCommentObserver"/>
+    </event>
+
+    <!--Invoice Emails-->
     <event name="fooman_emailattachments_before_send_invoice">
         <observer name="fooman_emailattachments_before_send_invoice_observer"
                   instance="Fooman\EmailAttachments\Observer\BeforeSendInvoiceObserver"/>
@@ -18,5 +29,24 @@
                   instance="Fooman\EmailAttachments\Observer\BeforeSendInvoiceCommentObserver"/>
     </event>
 
+    <!--Shipment Emails-->
+    <event name="fooman_emailattachments_before_send_shipment">
+        <observer name="fooman_emailattachments_before_send_shipment_observer"
+                  instance="Fooman\EmailAttachments\Observer\BeforeSendShipmentObserver"/>
+    </event>
+    <event name="fooman_emailattachments_before_send_shipment_comment">
+        <observer name="fooman_emailattachments_before_send_shipment_comment_observer"
+                  instance="Fooman\EmailAttachments\Observer\BeforeSendShipmentCommentObserver"/>
+    </event>
+
+    <!--Credit Memo Emails-->
+    <event name="fooman_emailattachments_before_send_credimemo">
+        <observer name="fooman_emailattachments_before_send_credimemo_observer"
+                  instance="Fooman\EmailAttachments\Observer\BeforeSendCreditmemoObserver"/>
+    </event>
+    <event name="fooman_emailattachments_before_send_credimemo_comment">
+        <observer name="fooman_emailattachments_before_send_credimemo_comment_observer"
+                  instance="Fooman\EmailAttachments\Observer\BeforeSendCreditmemoCommentObserver"/>
+    </event>
 
 </config>

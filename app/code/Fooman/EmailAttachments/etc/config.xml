@@ -3,9 +3,30 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <sales_email>
+            <order>
+                <attachpdf>0</attachpdf>
+            </order>
+            <order_comment>
+                <attachpdf>0</attachpdf>
+            </order_comment>
             <invoice>
                 <attachpdf>0</attachpdf>
             </invoice>
+            <invoice_comment>
+                <attachpdf>0</attachpdf>
+            </invoice_comment>
+            <shipment>
+                <attachpdf>0</attachpdf>
+            </shipment>
+            <shipment_comment>
+                <attachpdf>0</attachpdf>
+            </shipment_comment>
+            <creditmemo>
+                <attachpdf>0</attachpdf>
+            </creditmemo>
+            <creditmemo_comment>
+                <attachpdf>0</attachpdf>
+            </creditmemo_comment>
         </sales_email>
     </default>
 </config>

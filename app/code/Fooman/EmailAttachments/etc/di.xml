@@ -5,10 +5,16 @@
                 type="Fooman\EmailAttachments\Model\MailTransportBuilder"/>
     <preference for="\Magento\Sales\Model\Order\Email\SenderBuilder"
                 type="Fooman\EmailAttachments\Model\SenderBuilder"/>
+
     <preference for="\Magento\Sales\Model\Order\Email\Sender\InvoiceSender"
                 type="Fooman\EmailAttachments\Model\Email\Sender\InvoiceSender"/>
     <preference for="\Magento\Sales\Model\Order\Email\Sender\InvoiceCommentSender"
                 type="Fooman\EmailAttachments\Model\Email\Sender\InvoiceCommentSender"/>
+
+    <preference for="\Magento\Sales\Model\Order\Email\Sender\ShipmentSender"
+                type="Fooman\EmailAttachments\Model\Email\Sender\ShipmentSender"/>
+    <preference for="\Magento\Sales\Model\Order\Email\Sender\ShipmentCommentSender"
+                type="Fooman\EmailAttachments\Model\Email\Sender\ShipmentCommentSender"/>
 
     <!-- module introduced preferences -->
     <preference for="Fooman\EmailAttachments\Model\Api\AttachmentContainerInterface"
