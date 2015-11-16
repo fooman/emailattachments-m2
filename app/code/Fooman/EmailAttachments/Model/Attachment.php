@@ -11,6 +11,13 @@ class Attachment implements Api\AttachmentInterface
     protected $disposition;
     protected $encoding;
 
+    /**
+     * @param        $content
+     * @param        $mimeType
+     * @param        $fileName
+     * @param string $disposition
+     * @param string $encoding
+     */
     public function __construct(
         $content,
         $mimeType,
