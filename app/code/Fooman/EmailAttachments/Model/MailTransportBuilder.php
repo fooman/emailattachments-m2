@@ -8,7 +8,8 @@ class MailTransportBuilder extends \Magento\Framework\Mail\Template\TransportBui
     /**
      * @param Api\AttachmentInterface $attachment
      */
-    public function addAttachment( Api\AttachmentInterface $attachment ) {
+    public function addAttachment(Api\AttachmentInterface $attachment)
+    {
         $this->message->createAttachment(
             $attachment->getContent(),
             $attachment->getMimeType(),

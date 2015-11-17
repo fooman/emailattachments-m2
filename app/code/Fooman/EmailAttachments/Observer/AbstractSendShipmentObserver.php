@@ -31,7 +31,6 @@ class AbstractSendShipmentObserver extends AbstractObserver
             $shipment->getStoreId()
         )
         ) {
-
             $pdf = $this->pdfRenderer->getPdf([$shipment]);
             $this->attachPdf($pdf, $observer);
         }
