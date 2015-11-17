@@ -40,12 +40,12 @@
     </event>
 
     <!--Credit Memo Emails-->
-    <event name="fooman_emailattachments_before_send_credimemo">
-        <observer name="fooman_emailattachments_before_send_credimemo_observer"
+    <event name="fooman_emailattachments_before_send_creditmemo">
+        <observer name="fooman_emailattachments_before_send_creditmemo_observer"
                   instance="Fooman\EmailAttachments\Observer\BeforeSendCreditmemoObserver"/>
     </event>
-    <event name="fooman_emailattachments_before_send_credimemo_comment">
-        <observer name="fooman_emailattachments_before_send_credimemo_comment_observer"
+    <event name="fooman_emailattachments_before_send_creditmemo_comment">
+        <observer name="fooman_emailattachments_before_send_creditmemo_comment_observer"
                   instance="Fooman\EmailAttachments\Observer\BeforeSendCreditmemoCommentObserver"/>
     </event>
 
