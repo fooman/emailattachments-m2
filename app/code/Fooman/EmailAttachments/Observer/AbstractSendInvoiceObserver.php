@@ -11,7 +11,7 @@ class AbstractSendInvoiceObserver extends AbstractObserver
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Fooman\EmailAttachments\Model\AttachmentFactory $attachmentFactory,
-        \Magento\Sales\Model\Order\Pdf\Invoice $pdfRenderer
+        \Fooman\EmailAttachments\Model\Api\PdfRendererInterface $pdfRenderer
     ) {
         parent::__construct($scopeConfig, $attachmentFactory);
         $this->pdfRenderer = $pdfRenderer;
@@ -30,8 +30,7 @@ class AbstractSendInvoiceObserver extends AbstractObserver
             $invoice->getStoreId()
         )
         ) {
-            $pdf = $this->pdfRenderer->getPdf([$invoice]);
-            $this->attachPdf($pdf->render(), $observer);
+            $this->attachPdf($this->pdfRenderer->getPdfAsString([$invoice]), $observer);
         }
     }
 }

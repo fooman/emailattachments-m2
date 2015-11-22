@@ -11,7 +11,7 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Fooman\EmailAttachments\Model\AttachmentFactory $attachmentFactory,
-        \Magento\Sales\Model\Order\Pdf\Creditmemo $pdfRenderer
+        \Fooman\EmailAttachments\Model\Api\PdfRendererInterface $pdfRenderer
     ) {
         parent::__construct($scopeConfig, $attachmentFactory);
         $this->pdfRenderer = $pdfRenderer;
@@ -30,8 +30,7 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
             $creditmemo->getStoreId()
         )
         ) {
-            $pdf = $this->pdfRenderer->getPdf([$creditmemo]);
-            $this->attachPdf($pdf->render(), $observer);
+            $this->attachPdf($this->pdfRenderer->getPdfAsString([$creditmemo]), $observer);
         }
     }
 }

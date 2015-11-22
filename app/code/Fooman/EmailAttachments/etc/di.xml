@@ -24,4 +24,37 @@
     <!-- module introduced preferences -->
     <preference for="Fooman\EmailAttachments\Model\Api\AttachmentContainerInterface"
                 type="Fooman\EmailAttachments\Model\AttachmentContainer"/>
+
+    <virtualType name="fooman_emailattachments_invoice_pdf_renderer" type="\Fooman\EmailAttachments\Model\PdfRenderer">
+        <arguments>
+            <argument name="pdfRenderer" xsi:type="object">\Magento\Sales\Model\Order\Pdf\Invoice</argument>
+        </arguments>
+    </virtualType>
+    <type name="\Fooman\EmailAttachments\Observer\AbstractSendInvoiceObserver">
+        <arguments>
+            <argument name="pdfRenderer" xsi:type="object">fooman_emailattachments_invoice_pdf_renderer</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="fooman_emailattachments_shipment_pdf_renderer" type="\Fooman\EmailAttachments\Model\PdfRenderer">
+        <arguments>
+            <argument name="pdfRenderer" xsi:type="object">\Magento\Sales\Model\Order\Pdf\Shipment</argument>
+        </arguments>
+    </virtualType>
+    <type name="\Fooman\EmailAttachments\Observer\AbstractSendShipmentObserver">
+        <arguments>
+            <argument name="pdfRenderer" xsi:type="object">fooman_emailattachments_shipment_pdf_renderer</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="fooman_emailattachments_creditmemo_pdf_renderer" type="\Fooman\EmailAttachments\Model\PdfRenderer">
+        <arguments>
+            <argument name="pdfRenderer" xsi:type="object">\Magento\Sales\Model\Order\Pdf\Creditmemo</argument>
+        </arguments>
+    </virtualType>
+    <type name="\Fooman\EmailAttachments\Observer\AbstractSendCreditmemoObserver">
+        <arguments>
+            <argument name="pdfRenderer" xsi:type="object">fooman_emailattachments_creditmemo_pdf_renderer</argument>
+        </arguments>
+    </type>
 </config>
