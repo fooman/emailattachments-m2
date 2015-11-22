@@ -6,6 +6,11 @@
     <preference for="\Magento\Sales\Model\Order\Email\SenderBuilder"
                 type="Fooman\EmailAttachments\Model\SenderBuilder"/>
 
+    <preference for="\Magento\Sales\Model\Order\Email\Sender\OrderSender"
+                type="Fooman\EmailAttachments\Model\Email\Sender\OrderSender"/>
+    <preference for="\Magento\Sales\Model\Order\Email\Sender\OrderCommentSender"
+                type="Fooman\EmailAttachments\Model\Email\Sender\OrderCommentSender"/>
+
     <preference for="\Magento\Sales\Model\Order\Email\Sender\InvoiceSender"
                 type="Fooman\EmailAttachments\Model\Email\Sender\InvoiceSender"/>
     <preference for="\Magento\Sales\Model\Order\Email\Sender\InvoiceCommentSender"
@@ -24,6 +29,18 @@
     <!-- module introduced preferences -->
     <preference for="Fooman\EmailAttachments\Model\Api\AttachmentContainerInterface"
                 type="Fooman\EmailAttachments\Model\AttachmentContainer"/>
+
+    <virtualType name="fooman_emailattachments_order_pdf_renderer" type="\Fooman\EmailAttachments\Model\PdfRenderer">
+        <arguments>
+            <argument name="pdfRenderer" xsi:type="object">\Fooman\PrintOrderPdf\Model\Pdf\Order</argument>
+        </arguments>
+    </virtualType>
+    <type name="\Fooman\EmailAttachments\Observer\AbstractSendOrderObserver">
+        <arguments>
+            <argument name="pdfRenderer" xsi:type="object">fooman_emailattachments_order_pdf_renderer</argument>
+        </arguments>
+    </type>
+
 
     <virtualType name="fooman_emailattachments_invoice_pdf_renderer" type="\Fooman\EmailAttachments\Model\PdfRenderer">
         <arguments>
