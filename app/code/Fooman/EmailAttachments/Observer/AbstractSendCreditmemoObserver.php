@@ -6,17 +6,6 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
 {
     const XML_PATH_ATTACH_PDF = 'sales_email/creditmemo/attachpdf';
 
-    protected $pdfRenderer;
-
-    public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Fooman\EmailAttachments\Model\AttachmentFactory $attachmentFactory,
-        \Fooman\EmailAttachments\Model\Api\PdfRendererInterface $pdfRenderer
-    ) {
-        parent::__construct($scopeConfig, $attachmentFactory);
-        $this->pdfRenderer = $pdfRenderer;
-    }
-
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
 

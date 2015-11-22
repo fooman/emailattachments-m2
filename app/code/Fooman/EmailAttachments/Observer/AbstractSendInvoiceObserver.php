@@ -6,17 +6,6 @@ class AbstractSendInvoiceObserver extends AbstractObserver
 {
     const XML_PATH_ATTACH_PDF = 'sales_email/invoice/attachpdf';
 
-    protected $pdfRenderer;
-
-    public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Fooman\EmailAttachments\Model\AttachmentFactory $attachmentFactory,
-        \Fooman\EmailAttachments\Model\Api\PdfRendererInterface $pdfRenderer
-    ) {
-        parent::__construct($scopeConfig, $attachmentFactory);
-        $this->pdfRenderer = $pdfRenderer;
-    }
-
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
 
@@ -32,7 +21,7 @@ class AbstractSendInvoiceObserver extends AbstractObserver
         ) {
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$invoice]),
-                $this->pdfRenderer->getPdfFilename(__('Invoice ' . $invoice->getIncrementId())),
+                $this->pdfRenderer->getFileName(__('Invoice ' . $invoice->getIncrementId())),
                 $observer
             );
         }

@@ -8,12 +8,16 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
 
     protected $scopeConfig;
 
+    protected $pdfRenderer;
+
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Fooman\EmailAttachments\Model\AttachmentFactory $attachmentFactory
+        \Fooman\EmailAttachments\Model\AttachmentFactory $attachmentFactory,
+        \Fooman\EmailAttachments\Model\Api\PdfRendererInterface $pdfRenderer
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->attachmentFactory = $attachmentFactory;
+        $this->pdfRenderer = $pdfRenderer;
     }
 
     protected function attachPdf($pdfString, $pdfFilename, $observer)
