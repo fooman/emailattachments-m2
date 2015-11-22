@@ -16,11 +16,11 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
         $this->attachmentFactory = $attachmentFactory;
     }
 
-    protected function attachPdf($pdf, $observer)
+    protected function attachPdf($pdfString, $observer)
     {
         $attachment = $this->attachmentFactory->create(
             [
-                'content'  => $pdf->render(),
+                'content'  => $pdfString,
                 'mimeType' => 'application/pdf',
                 'fileName' => 'testing.pdf'
             ]

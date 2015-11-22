@@ -32,7 +32,7 @@ class AbstractSendShipmentObserver extends AbstractObserver
         )
         ) {
             $pdf = $this->pdfRenderer->getPdf([$shipment]);
-            $this->attachPdf($pdf, $observer);
+            $this->attachPdf($pdf->render(), $observer);
         }
 
     }

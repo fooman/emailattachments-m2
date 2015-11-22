@@ -32,7 +32,7 @@ class AbstractSendInvoiceObserver extends AbstractObserver
         )
         ) {
             $pdf = $this->pdfRenderer->getPdf([$invoice]);
-            $this->attachPdf($pdf, $observer);
+            $this->attachPdf($pdf->render(), $observer);
         }
 
     }
