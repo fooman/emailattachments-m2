@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Model;
 
 class Attachment implements Api\AttachmentInterface
 {
-
     protected $content;
     protected $mimeType;
     protected $filename;
@@ -71,6 +70,4 @@ class Attachment implements Api\AttachmentInterface
     {
         return $this->content;
     }
-
-
 }

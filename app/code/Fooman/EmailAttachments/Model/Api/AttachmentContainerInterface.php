@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Model\Api;
 
 interface AttachmentContainerInterface
 {
-
     /**
      * @return bool
      */

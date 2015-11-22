@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Observer;
 
 class AbstractSendShipmentObserver extends AbstractObserver
 {
-
     const XML_PATH_ATTACH_PDF = 'sales_email/shipment/attachpdf';
 
     protected $pdfRenderer;
@@ -34,6 +33,5 @@ class AbstractSendShipmentObserver extends AbstractObserver
             $pdf = $this->pdfRenderer->getPdf([$shipment]);
             $this->attachPdf($pdf->render(), $observer);
         }
-
     }
 }

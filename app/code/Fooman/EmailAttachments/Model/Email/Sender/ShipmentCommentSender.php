@@ -31,7 +31,6 @@ class ShipmentCommentSender extends \Magento\Sales\Model\Order\Email\Sender\Ship
 
     public function send(\Magento\Sales\Model\Order\Shipment $shipment, $notify = true, $comment = '')
     {
-
         $this->eventManager->dispatch(
             'fooman_emailattachments_before_send_shipment_comment',
             [

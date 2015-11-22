@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Model;
 
 class SenderBuilder extends \Magento\Sales\Model\Order\Email\SenderBuilder
 {
-
     /**
      * @var Api\AttachmentContainerInterface
      */
@@ -63,6 +62,5 @@ class SenderBuilder extends \Magento\Sales\Model\Order\Email\SenderBuilder
         }
         parent::sendCopyTo();
         $this->attachmentContainer->resetAttachments();
-
     }
 }

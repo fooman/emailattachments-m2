@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Model\Email\Sender;
 
 class InvoiceSender extends \Magento\Sales\Model\Order\Email\Sender\InvoiceSender
 {
-
     /**
      * @var \Fooman\EmailAttachments\Model\AttachmentContainerInterface
      */
@@ -39,7 +38,6 @@ class InvoiceSender extends \Magento\Sales\Model\Order\Email\Sender\InvoiceSende
 
     public function send(\Magento\Sales\Model\Order\Invoice $invoice, $forceSyncMode = false)
     {
-
         $this->eventManager->dispatch(
             'fooman_emailattachments_before_send_invoice',
             [

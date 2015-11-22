@@ -31,7 +31,6 @@ class CreditmemoCommentSender extends \Magento\Sales\Model\Order\Email\Sender\Cr
 
     public function send(\Magento\Sales\Model\Order\Creditmemo $creditmemo, $notify = true, $comment = '')
     {
-
         $this->eventManager->dispatch(
             'fooman_emailattachments_before_send_creditmemo_comment',
             [

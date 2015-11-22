@@ -18,7 +18,6 @@ class BeforeSendCreditmemoObserverTest extends Common
             ->create('\Magento\Sales\Model\Order\Pdf\Creditmemo')->getPdf([$creditmemo]);
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
-
     }
 
     /**
@@ -31,12 +30,10 @@ class BeforeSendCreditmemoObserverTest extends Common
 
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertFalse($pdfAttachment);
-
     }
 
     protected function getCreditmemo()
     {
-
         $collection = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
             'Magento\Sales\Model\ResourceModel\Order\Creditmemo\Collection'
         )->setPageSize(1);

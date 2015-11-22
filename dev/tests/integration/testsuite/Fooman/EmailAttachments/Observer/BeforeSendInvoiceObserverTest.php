@@ -18,7 +18,6 @@ class BeforeSendInvoiceObserverTest extends Common
             ->create('\Magento\Sales\Model\Order\Pdf\Invoice')->getPdf([$invoice]);
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
-
     }
 
     /**
@@ -31,12 +30,10 @@ class BeforeSendInvoiceObserverTest extends Common
 
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertFalse($pdfAttachment);
-
     }
 
     protected function getInvoice()
     {
-
         $collection = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
             'Magento\Sales\Model\ResourceModel\Order\Invoice\Collection'
         )->setPageSize(1);

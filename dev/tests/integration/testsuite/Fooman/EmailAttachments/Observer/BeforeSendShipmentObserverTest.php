@@ -18,7 +18,6 @@ class BeforeSendShipmentObserverTest extends Common
             ->create('\Magento\Sales\Model\Order\Pdf\Shipment')->getPdf([$shipment]);
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
-
     }
 
     /**
@@ -31,12 +30,10 @@ class BeforeSendShipmentObserverTest extends Common
 
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertFalse($pdfAttachment);
-
     }
 
     protected function getShipment()
     {
-
         $collection = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
             'Magento\Sales\Model\ResourceModel\Order\Shipment\Collection'
         )->setPageSize(1);

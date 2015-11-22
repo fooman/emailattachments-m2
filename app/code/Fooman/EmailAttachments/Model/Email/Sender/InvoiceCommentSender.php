@@ -31,7 +31,6 @@ class InvoiceCommentSender extends \Magento\Sales\Model\Order\Email\Sender\Invoi
 
     public function send(\Magento\Sales\Model\Order\Invoice $invoice, $notify = true, $comment = '')
     {
-
         $this->eventManager->dispatch(
             'fooman_emailattachments_before_send_invoice_comment',
             [

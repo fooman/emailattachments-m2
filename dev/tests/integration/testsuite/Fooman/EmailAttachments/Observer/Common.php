@@ -2,10 +2,10 @@
 
 namespace Fooman\EmailAttachments\Observer;
 
-
 class Common extends \PHPUnit_Framework_TestCase
 {
     protected $mailhogClient;
+    protected $objectManager;
 
     const BASE_URL = 'http://127.0.0.1:8025/api/';
 
@@ -13,6 +13,7 @@ class Common extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $this->mailhogClient = new \Zend_Http_Client();
+        $this->objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
     }
 
     public function getLastEmail()
@@ -27,7 +28,6 @@ class Common extends \PHPUnit_Framework_TestCase
 
     public function getAttachmentOfType($email, $type)
     {
-
         if (isset($email['MIME']['Parts'])) {
             foreach ($email['MIME']['Parts'] as $part) {
                 if (!isset($type, $part['Headers']['Content-Type'])) {

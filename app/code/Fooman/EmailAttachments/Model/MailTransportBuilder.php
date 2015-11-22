@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Model;
 
 class MailTransportBuilder extends \Magento\Framework\Mail\Template\TransportBuilder
 {
-
     /**
      * @param Api\AttachmentInterface $attachment
      */
@@ -18,5 +17,4 @@ class MailTransportBuilder extends \Magento\Framework\Mail\Template\TransportBui
             $attachment->getFilename()
         );
     }
-
 }

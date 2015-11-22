@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Model\Email\Sender;
 
 class CreditmemoSender extends \Magento\Sales\Model\Order\Email\Sender\CreditmemoSender
 {
-
     /**
      * @var \Fooman\EmailAttachments\Model\AttachmentContainerInterface
      */
@@ -39,7 +38,6 @@ class CreditmemoSender extends \Magento\Sales\Model\Order\Email\Sender\Creditmem
 
     public function send(\Magento\Sales\Model\Order\Creditmemo $creditmemo, $forceSyncMode = false)
     {
-
         $this->eventManager->dispatch(
             'fooman_emailattachments_before_send_creditmemo',
             [

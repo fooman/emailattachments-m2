@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Model\Email\Sender;
 
 class ShipmentSender extends \Magento\Sales\Model\Order\Email\Sender\ShipmentSender
 {
-
     /**
      * @var \Fooman\EmailAttachments\Model\AttachmentContainerInterface
      */
@@ -39,7 +38,6 @@ class ShipmentSender extends \Magento\Sales\Model\Order\Email\Sender\ShipmentSen
 
     public function send(\Magento\Sales\Model\Order\Shipment $shipment, $forceSyncMode = false)
     {
-
         $this->eventManager->dispatch(
             'fooman_emailattachments_before_send_shipment',
             [

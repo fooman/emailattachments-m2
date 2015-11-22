@@ -4,7 +4,6 @@ namespace Fooman\EmailAttachments\Test\Unit\Model;
 
 class AttachmentTest extends \PHPUnit_Framework_TestCase
 {
-
     const TEST_CONTENT = 'Testing content';
     const TEST_MIME = 'text/plain';
     const TEST_FILENAME = 'filename.txt';
@@ -56,5 +55,4 @@ class AttachmentTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(self::TEST_ENCODING, $this->attachment->getEncoding());
     }
-
 }

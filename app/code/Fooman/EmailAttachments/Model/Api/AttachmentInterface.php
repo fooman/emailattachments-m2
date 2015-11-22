@@ -13,5 +13,4 @@ interface AttachmentInterface
     public function getEncoding();
 
     public function getContent();
-
 }
