@@ -16,4 +16,9 @@ class PdfRenderer implements Api\PdfRendererInterface
     {
         return $this->pdfRenderer->getPdf($salesObject)->render();
     }
+
+    public function getFileName($input = '')
+    {
+        return sprintf('%s.pdf', $input);
+    }
 }
