@@ -21,7 +21,12 @@ class MailTransportBuilder extends \Magento\Framework\Mail\Template\TransportBui
             $attachment->getMimeType(),
             $attachment->getDisposition(),
             $attachment->getEncoding(),
-            $attachment->getFilename()
+            $this->encodedFileName($attachment->getFilename())
         );
+    }
+
+    protected function encodedFileName($subject)
+    {
+        return sprintf('=?utf-8?B?%s?=', base64_encode($subject));
     }
 }
