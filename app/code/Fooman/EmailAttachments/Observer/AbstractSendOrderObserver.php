@@ -10,7 +10,7 @@ class AbstractSendOrderObserver extends AbstractObserver
     {
 
         /**
-         * @var $invoice \Magento\Sales\Api\Data\OrderInterface
+         * @var $order \Magento\Sales\Api\Data\OrderInterface
          */
         $order = $observer->getOrder();
         if ($this->scopeConfig->getValue(
