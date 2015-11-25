@@ -33,5 +33,14 @@ class AbstractSendShipmentObserver extends AbstractObserver
                 $observer->getAttachmentContainer()
             );
         }
+
+        if ($this->scopeConfig->getValue(
+            static::XML_PATH_ATTACH_AGREEMENT,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            $shipment->getStoreId()
+        )
+        ) {
+            $this->attachTermsAndConditions($shipment->getStoreId(), $observer->getAttachmentContainer());
+        }
     }
 }

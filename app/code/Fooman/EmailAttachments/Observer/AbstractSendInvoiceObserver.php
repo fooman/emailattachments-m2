@@ -33,5 +33,14 @@ class AbstractSendInvoiceObserver extends AbstractObserver
                 $observer->getAttachmentContainer()
             );
         }
+
+        if ($this->scopeConfig->getValue(
+            static::XML_PATH_ATTACH_AGREEMENT,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            $invoice->getStoreId()
+        )
+        ) {
+            $this->attachTermsAndConditions($invoice->getStoreId(), $observer->getAttachmentContainer());
+        }
     }
 }
