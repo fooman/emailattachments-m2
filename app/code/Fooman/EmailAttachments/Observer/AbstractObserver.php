@@ -74,7 +74,9 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
              */
             if ($agreement->getIsHtml()) {
                 $this->attachHtml(
-                    $this->buildHtmlAgreement($agreement), $agreement->getName() . '.html', $attachmentContainer
+                    $this->buildHtmlAgreement($agreement),
+                    $agreement->getName() . '.html',
+                    $attachmentContainer
                 );
             } else {
                 $this->attachTxt($agreement->getContent(), $agreement->getName() . '.txt', $attachmentContainer);
