@@ -12,6 +12,7 @@ namespace Fooman\EmailAttachments\Observer;
 class AbstractSendCreditmemoObserver extends AbstractObserver
 {
     const XML_PATH_ATTACH_PDF = 'sales_email/creditmemo/attachpdf';
+    const XML_PATH_ATTACH_AGREEMENT = 'sales_email/creditmemo/attachagreement';
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
@@ -31,6 +32,16 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
                 $this->pdfRenderer->getFileName(__('Credit Memo ' . $creditmemo->getIncrementId())),
                 $observer
             );
+        }
+
+
+        if ($this->scopeConfig->getValue(
+            static::XML_PATH_ATTACH_AGREEMENT,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            $creditmemo->getStoreId()
+        )
+        ) {
+            $this->attachTermsAndConditions($creditmemo->getStoreId(), $observer);
         }
     }
 }

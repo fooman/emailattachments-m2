@@ -27,6 +27,18 @@
                     <tooltip>When set to Yes, your invoice pdf document will be
                         automatically attached to the invoice email.</tooltip>
                 </field>
+                <field id="attachagreement"
+                       translate="label"
+                       type="select"
+                       sortOrder="250"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Terms and Conditions</label>
+                    <tooltip><![CDATA[When set to Yes, your Terms and Conditions
+                                (from <b>Stores &gt; Terms and Conditions</b>) will be automatically attached to the email.]]></tooltip>
+                </field>
             </group>
             <group id="order_comment">
                 <field id="attachpdf"
@@ -42,6 +54,18 @@
                     <tooltip>When set to Yes, your invoice pdf document will be
                         automatically attached to the invoice email.</tooltip>
                 </field>
+                <field id="attachagreement"
+                       translate="label"
+                       type="select"
+                       sortOrder="250"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Terms and Conditions</label>
+                    <tooltip><![CDATA[When set to Yes, your Terms and Conditions
+                                (from <b>Stores &gt; Terms and Conditions</b>) will be automatically attached to the email.]]></tooltip>
+                </field>
             </group>
             <group id="invoice">
                 <field id="attachpdf"
@@ -56,6 +80,18 @@
                     <tooltip>When set to Yes, your invoice pdf document will be
                         automatically attached to the invoice email.</tooltip>
                 </field>
+                <field id="attachagreement"
+                       translate="label"
+                       type="select"
+                       sortOrder="250"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Terms and Conditions</label>
+                    <tooltip><![CDATA[When set to Yes, your Terms and Conditions
+                                (from <b>Stores &gt; Terms and Conditions</b>) will be automatically attached to the email.]]></tooltip>
+                </field>
             </group>
             <group id="invoice_comment">
                 <field id="attachpdf"
@@ -69,6 +105,18 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <tooltip>When set to Yes, your invoice pdf document will be
                         automatically attached to the invoice email.</tooltip>
+                </field>
+                <field id="attachagreement"
+                       translate="label"
+                       type="select"
+                       sortOrder="250"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Terms and Conditions</label>
+                    <tooltip><![CDATA[When set to Yes, your Terms and Conditions
+                                (from <b>Stores &gt; Terms and Conditions</b>) will be automatically attached to the email.]]></tooltip>
                 </field>
             </group>
             <group id="shipment">
@@ -98,6 +146,18 @@
                     <tooltip>When set to Yes, your packing slip pdf document will be
                         automatically attached to the shipment email.</tooltip>
                 </field>
+                <field id="attachagreement"
+                       translate="label"
+                       type="select"
+                       sortOrder="250"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Terms and Conditions</label>
+                    <tooltip><![CDATA[When set to Yes, your Terms and Conditions
+                                (from <b>Stores &gt; Terms and Conditions</b>) will be automatically attached to the email.]]></tooltip>
+                </field>
             </group>
             <group id="creditmemo">
                 <field id="attachpdf"
@@ -112,6 +172,18 @@
                     <tooltip>When set to Yes, your packing slip pdf document will be
                         automatically attached to the shipment comment email.</tooltip>
                 </field>
+                <field id="attachagreement"
+                       translate="label"
+                       type="select"
+                       sortOrder="250"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Terms and Conditions</label>
+                    <tooltip><![CDATA[When set to Yes, your Terms and Conditions
+                                (from <b>Stores &gt; Terms and Conditions</b>) will be automatically attached to the email.]]></tooltip>
+                </field>
             </group>
             <group id="creditmemo_comment">
                 <field id="attachpdf"
@@ -125,6 +197,18 @@
                     <label>Attach Credit Memo as PDF</label>
                     <tooltip>When set to Yes, your packing slip pdf document will be
                         automatically attached to the shipment comment email.</tooltip>
+                </field>
+                <field id="attachagreement"
+                       translate="label"
+                       type="select"
+                       sortOrder="250"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Terms and Conditions</label>
+                    <tooltip><![CDATA[When set to Yes, your Terms and Conditions
+                                (from <b>Stores &gt; Terms and Conditions</b>) will be automatically attached to the email.]]></tooltip>
                 </field>
             </group>
         </section>

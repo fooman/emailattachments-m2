@@ -32,6 +32,30 @@ class BeforeSendOrderObserverTest extends Common
 
     /**
      * @magentoDataFixture   Magento/Sales/_files/order.php
+     * @magentoDataFixture   Magento/CheckoutAgreements/_files/agreement_active_with_html_content.php
+     * @magentoConfigFixture current_store sales_email/order/attachagreement 1
+     */
+    public function testWithHtmlTermsAttachment()
+    {
+        $this->sendOrderEmail();
+        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/html; charset=UTF-8');
+        $this->assertContains('Checkout agreement content: <b>HTML</b>', base64_decode($termsAttachment['Body']));
+    }
+
+    /**
+     * @magentoDataFixture   Magento/Sales/_files/order.php
+     * @magentoDataFixture   Fooman/EmailAttachments/_files/agreement_active_with_text_content.php
+     * @magentoConfigFixture current_store sales_email/order/attachagreement 1
+     */
+    public function testWithTextTermsAttachment()
+    {
+        $this->sendOrderEmail();
+        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/plain');
+        $this->assertContains('Checkout agreement content: TEXT', base64_decode($termsAttachment['Body']));
+    }
+
+    /**
+     * @magentoDataFixture   Magento/Sales/_files/order.php
      * @magentoConfigFixture current_store sales_email/order/attachpdf 0
      */
     public function testWithoutAttachment()
