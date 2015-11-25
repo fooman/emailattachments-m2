@@ -30,7 +30,7 @@ class AbstractSendInvoiceObserver extends AbstractObserver
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$invoice]),
                 $this->pdfRenderer->getFileName(__('Invoice ' . $invoice->getIncrementId())),
-                $observer
+                $observer->getAttachmentContainer()
             );
         }
     }

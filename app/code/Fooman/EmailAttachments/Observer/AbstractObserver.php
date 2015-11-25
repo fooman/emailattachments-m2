@@ -9,6 +9,8 @@
  */
 namespace Fooman\EmailAttachments\Observer;
 
+use \Fooman\EmailAttachments\Model\Api\AttachmentContainerInterface as ContainerInterface;
+
 abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInterface
 {
     protected $attachmentFactory;
@@ -31,8 +33,7 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
         $this->termsCollection = $termsCollection;
     }
 
-    //TODO change input observer->attachmentContainerInterface
-    public function attachContent($content, $pdfFilename, $mimeType, $observer)
+    public function attachContent($content, $pdfFilename, $mimeType, ContainerInterface $attachmentContainer)
     {
         $attachment = $this->attachmentFactory->create(
             [
@@ -41,25 +42,25 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
                 'fileName' => $pdfFilename
             ]
         );
-        $observer->getAttachmentContainer()->addAttachment($attachment);
+        $attachmentContainer->addAttachment($attachment);
     }
 
-    public function attachPdf($pdfString, $pdfFilename, $observer)
+    public function attachPdf($pdfString, $pdfFilename, ContainerInterface $attachmentContainer)
     {
-        $this->attachContent($pdfString, $pdfFilename, 'application/pdf', $observer);
+        $this->attachContent($pdfString, $pdfFilename, 'application/pdf', $attachmentContainer);
     }
 
-    public function attachTxt($text, $filename, $observer)
+    public function attachTxt($text, $filename, ContainerInterface $attachmentContainer)
     {
-        $this->attachContent($text, $filename, 'text/plain', $observer);
+        $this->attachContent($text, $filename, 'text/plain', $attachmentContainer);
     }
 
-    public function attachHtml($html, $filename, $observer)
+    public function attachHtml($html, $filename, ContainerInterface $attachmentContainer)
     {
-        $this->attachContent($html, $filename, 'text/html; charset=UTF-8', $observer);
+        $this->attachContent($html, $filename, 'text/html; charset=UTF-8', $attachmentContainer);
     }
 
-    public function attachTermsAndConditions($storeId, $observer)
+    public function attachTermsAndConditions($storeId, ContainerInterface $attachmentContainer)
     {
         /**
          * @var $agreements \Magento\CheckoutAgreements\Model\ResourceModel\Agreement\Collection
@@ -72,9 +73,11 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
              * @var $agreement \Magento\CheckoutAgreements\Api\Data\AgreementInterfacet
              */
             if ($agreement->getIsHtml()) {
-                $this->attachHtml($this->buildHtmlAgreement($agreement), $agreement->getName().'.html', $observer);
+                $this->attachHtml(
+                    $this->buildHtmlAgreement($agreement), $agreement->getName() . '.html', $attachmentContainer
+                );
             } else {
-                $this->attachTxt($agreement->getContent(), $agreement->getName().'.txt', $observer);
+                $this->attachTxt($agreement->getContent(), $agreement->getName() . '.txt', $attachmentContainer);
             }
         }
     }
