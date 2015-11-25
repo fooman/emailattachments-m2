@@ -61,7 +61,7 @@ class BeforeSendCreditmemoObserverTest extends Common
     }
 
     /**
-     * @magentoDataFixture   Magento/Sales/_files/creditmemo.php
+     * @magentoDataFixture   Magento/Sales/_files/creditmemo_with_list.php
      * @magentoDataFixture   Magento/CheckoutAgreements/_files/agreement_active_with_html_content.php
      * @magentoConfigFixture current_store sales_email/creditmemo/attachagreement 1
      * @magentoConfigFixture current_store sales_email/creditmemo/attachpdf 1
