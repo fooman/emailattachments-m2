@@ -20,11 +20,10 @@ class BeforeSendInvoiceObserverTest extends Common
      */
     public function testWithAttachment()
     {
-        $invoice = $this->sendInvoiceEmail();
+        $invoice = $this->sendEmail();
         $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
             ->create('\Magento\Sales\Model\Order\Pdf\Invoice')->getPdf([$invoice]);
-        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
-        $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
+        $this->compareWithReceivedPdf($pdf);
     }
 
     /**
@@ -34,9 +33,8 @@ class BeforeSendInvoiceObserverTest extends Common
      */
     public function testWithHtmlTermsAttachment()
     {
-        $this->sendInvoiceCommentEmail();
-        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/html; charset=UTF-8');
-        $this->assertContains('Checkout agreement content: <b>HTML</b>', base64_decode($termsAttachment['Body']));
+        $this->sendEmail();
+        $this->checkReceivedHtmlTermsAttachment();
     }
 
     /**
@@ -46,9 +44,8 @@ class BeforeSendInvoiceObserverTest extends Common
      */
     public function testWithTextTermsAttachment()
     {
-        $this->sendInvoiceCommentEmail();
-        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/plain');
-        $this->assertContains('Checkout agreement content: TEXT', base64_decode($termsAttachment['Body']));
+        $this->sendEmail();
+        $this->checkReceivedTxtTermsAttachment();
     }
 
     /**
@@ -57,7 +54,7 @@ class BeforeSendInvoiceObserverTest extends Common
      */
     public function testWithoutAttachment()
     {
-        $this->sendInvoiceEmail();
+        $this->sendEmail();
 
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertFalse($pdfAttachment);
@@ -72,9 +69,9 @@ class BeforeSendInvoiceObserverTest extends Common
     }
 
     /**
-     * @return mixed
+     * @return \Magento\Sales\Api\Data\InvoiceInterface
      */
-    protected function sendInvoiceEmail()
+    protected function sendEmail()
     {
         $invoice = $this->getInvoice();
         $invoiceSender = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()

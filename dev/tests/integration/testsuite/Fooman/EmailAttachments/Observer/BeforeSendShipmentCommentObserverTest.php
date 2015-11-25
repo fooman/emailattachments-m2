@@ -20,11 +20,10 @@ class BeforeSendShipmentCommentObserverTest extends Common
      */
     public function testWithAttachment()
     {
-        $shipment = $this->sendShipmentCommentEmail();
+        $shipment = $this->sendEmail();
         $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
             ->create('\Magento\Sales\Model\Order\Pdf\Shipment')->getPdf([$shipment]);
-        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
-        $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
+        $this->compareWithReceivedPdf($pdf);
     }
 
     /**
@@ -34,9 +33,8 @@ class BeforeSendShipmentCommentObserverTest extends Common
      */
     public function testWithHtmlTermsAttachment()
     {
-        $this->sendShipmentCommentEmail();
-        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/html; charset=UTF-8');
-        $this->assertContains('Checkout agreement content: <b>HTML</b>', base64_decode($termsAttachment['Body']));
+        $this->sendEmail();
+        $this->checkReceivedHtmlTermsAttachment();
     }
 
     /**
@@ -46,9 +44,8 @@ class BeforeSendShipmentCommentObserverTest extends Common
      */
     public function testWithTextTermsAttachment()
     {
-        $this->sendShipmentCommentEmail();
-        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/plain');
-        $this->assertContains('Checkout agreement content: TEXT', base64_decode($termsAttachment['Body']));
+        $this->sendEmail();
+        $this->checkReceivedTxtTermsAttachment();
     }
 
     /**
@@ -57,7 +54,7 @@ class BeforeSendShipmentCommentObserverTest extends Common
      */
     public function testWithoutAttachment()
     {
-        $this->sendShipmentCommentEmail();
+        $this->sendEmail();
 
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertFalse($pdfAttachment);
@@ -72,9 +69,9 @@ class BeforeSendShipmentCommentObserverTest extends Common
     }
 
     /**
-     * @return mixed
+     * @return \Magento\Sales\Api\Data\ShipmentInterface
      */
-    protected function sendShipmentCommentEmail()
+    protected function sendEmail()
     {
         $shipment = $this->getShipment();
         $shipmentSender = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()

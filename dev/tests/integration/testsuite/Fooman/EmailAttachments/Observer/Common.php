@@ -48,4 +48,25 @@ class Common extends \PHPUnit_Framework_TestCase
 
         return false;
     }
+
+    /**
+     * @param $pdf
+     */
+    protected function compareWithReceivedPdf($pdf)
+    {
+        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
+        $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
+    }
+
+    protected function checkReceivedHtmlTermsAttachment()
+    {
+        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/html; charset=UTF-8');
+        $this->assertContains('Checkout agreement content: <b>HTML</b>', base64_decode($termsAttachment['Body']));
+    }
+
+    protected function checkReceivedTxtTermsAttachment()
+    {
+        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/plain');
+        $this->assertContains('Checkout agreement content: TEXT', base64_decode($termsAttachment['Body']));
+    }
 }

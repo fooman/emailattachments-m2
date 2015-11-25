@@ -21,13 +21,12 @@ class BeforeSendOrderCommentObserverTest extends Common
     public function testWithAttachment()
     {
         $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
-        $order = $this->sendOrderCommentEmail();
+        $order = $this->sendEmail();
         if (!$moduleManager->isEnabled('Fooman_PrintOrderPdf')) {
             $this->markTestSkipped('Fooman_PrintOrderPdf required for attaching order pdf');
         }
         $pdf = $this->objectManager->create('\Fooman\PrintOrderPdf\Model\Pdf\Order')->getPdf([$order]);
-        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
-        $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
+        $this->compareWithReceivedPdf($pdf);
     }
 
     /**
@@ -37,9 +36,8 @@ class BeforeSendOrderCommentObserverTest extends Common
      */
     public function testWithHtmlTermsAttachment()
     {
-        $this->sendOrderCommentEmail();
-        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/html; charset=UTF-8');
-        $this->assertContains('Checkout agreement content: <b>HTML</b>', base64_decode($termsAttachment['Body']));
+        $this->sendEmail();
+        $this->checkReceivedHtmlTermsAttachment();
     }
 
     /**
@@ -49,9 +47,8 @@ class BeforeSendOrderCommentObserverTest extends Common
      */
     public function testWithTextTermsAttachment()
     {
-        $this->sendOrderCommentEmail();
-        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/plain');
-        $this->assertContains('Checkout agreement content: TEXT', base64_decode($termsAttachment['Body']));
+        $this->sendEmail();
+        $this->checkReceivedTxtTermsAttachment();
     }
 
     /**
@@ -60,7 +57,7 @@ class BeforeSendOrderCommentObserverTest extends Common
      */
     public function testWithoutAttachment()
     {
-        $this->sendOrderCommentEmail();
+        $this->sendEmail();
 
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertFalse($pdfAttachment);
@@ -75,9 +72,9 @@ class BeforeSendOrderCommentObserverTest extends Common
     }
 
     /**
-     * @return mixed
+     * @return \Magento\Sales\Api\Data\OrderInterface
      */
-    protected function sendOrderCommentEmail()
+    protected function sendEmail()
     {
         $order = $this->getOrder();
         $orderSender = $this->objectManager
