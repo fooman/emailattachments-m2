@@ -61,6 +61,18 @@ class BeforeSendInvoiceCommentObserverTest extends Common
         $this->assertFalse($pdfAttachment);
     }
 
+    /**
+     * @magentoDataFixture   Magento/Sales/_files/invoice.php
+     * @magentoDataFixture   Magento/CheckoutAgreements/_files/agreement_active_with_html_content.php
+     * @magentoConfigFixture current_store sales_email/invoice_comment/attachagreement 1
+     * @magentoConfigFixture current_store sales_email/invoice_comment/attachpdf 1
+     */
+    public function testMultipleAttachments()
+    {
+        $this->testWithAttachment();
+        $this->checkReceivedHtmlTermsAttachment();
+    }
+
     protected function getInvoice()
     {
         $collection = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(

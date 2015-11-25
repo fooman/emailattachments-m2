@@ -60,6 +60,18 @@ class BeforeSendShipmentObserverTest extends Common
         $this->assertFalse($pdfAttachment);
     }
 
+    /**
+     * @magentoDataFixture   Magento/Sales/_files/shipment.php
+     * @magentoDataFixture   Magento/CheckoutAgreements/_files/agreement_active_with_html_content.php
+     * @magentoConfigFixture current_store sales_email/shipment/attachagreement 1
+     * @magentoConfigFixture current_store sales_email/shipment/attachpdf 1
+     */
+    public function testMultipleAttachments()
+    {
+        $this->testWithAttachment();
+        $this->checkReceivedHtmlTermsAttachment();
+    }
+
     protected function getShipment()
     {
         $collection = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
