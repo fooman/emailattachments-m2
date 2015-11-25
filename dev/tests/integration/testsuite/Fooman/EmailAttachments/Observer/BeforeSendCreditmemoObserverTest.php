@@ -34,7 +34,7 @@ class BeforeSendCreditmemoObserverTest extends Common
     public function testWithHtmlTermsAttachment()
     {
         $this->sendEmail();
-        $this->checkReceivedHtmlTermsAttachment();;
+        $this->checkReceivedHtmlTermsAttachment();
     }
 
     /**
@@ -45,7 +45,7 @@ class BeforeSendCreditmemoObserverTest extends Common
     public function testWithTextTermsAttachment()
     {
         $this->sendEmail();
-        $this->checkReceivedTxtTermsAttachment();;
+        $this->checkReceivedTxtTermsAttachment();
     }
 
     /**
