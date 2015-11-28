@@ -24,8 +24,8 @@
                     <if_module_enabled>Fooman_PrintOrderPdf</if_module_enabled>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <label>Attach Order as PDF</label>
-                    <tooltip>When set to Yes, your invoice pdf document will be
-                        automatically attached to the invoice email.</tooltip>
+                    <tooltip>When set to Yes, your order pdf document will be
+                        automatically attached to the order confirmation email.</tooltip>
                 </field>
                 <field id="attachagreement"
                        translate="label"
