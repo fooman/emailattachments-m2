@@ -14,4 +14,6 @@ interface PdfRendererInterface
     public function getPdfAsString(array $salesObjects);
 
     public function getFileName($input = '');
+
+    public function canRender();
 }

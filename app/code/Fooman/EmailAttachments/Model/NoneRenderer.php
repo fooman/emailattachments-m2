@@ -9,19 +9,12 @@
  */
 namespace Fooman\EmailAttachments\Model;
 
-class PdfRenderer implements Api\PdfRendererInterface
+class NoneRenderer implements Api\PdfRendererInterface
 {
-    protected $pdfRenderer;
-
-    public function __construct(
-        \Magento\Sales\Model\Order\Pdf\AbstractPdf $pdfRenderer
-    ) {
-        $this->pdfRenderer = $pdfRenderer;
-    }
 
     public function getPdfAsString(array $salesObject)
     {
-        return $this->pdfRenderer->getPdf($salesObject)->render();
+        return '';
     }
 
     public function getFileName($input = '')
@@ -31,6 +24,6 @@ class PdfRenderer implements Api\PdfRendererInterface
 
     public function canRender()
     {
-        return true;
+        return false;
     }
 }

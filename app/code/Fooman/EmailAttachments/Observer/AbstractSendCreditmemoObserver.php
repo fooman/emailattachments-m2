@@ -21,11 +21,12 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
          * @var $creditmemo \Magento\Sales\Api\Data\CreditmemoInterface
          */
         $creditmemo = $observer->getCreditmemo();
-        if ($this->scopeConfig->getValue(
-            static::XML_PATH_ATTACH_PDF,
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $creditmemo->getStoreId()
-        )
+        if ($this->pdfRenderer->canRender()
+            && $this->scopeConfig->getValue(
+                static::XML_PATH_ATTACH_PDF,
+                \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+                $creditmemo->getStoreId()
+            )
         ) {
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$creditmemo]),

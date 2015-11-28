@@ -14,19 +14,6 @@ class AbstractSendOrderObserver extends AbstractObserver
     const XML_PATH_ATTACH_PDF = 'sales_email/order/attachpdf';
     const XML_PATH_ATTACH_AGREEMENT = 'sales_email/order/attachagreement';
 
-    protected $moduleManager;
-
-    public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Fooman\EmailAttachments\Model\AttachmentFactory $attachmentFactory,
-        \Fooman\EmailAttachments\Model\Api\PdfRendererInterface $pdfRenderer,
-        \Magento\CheckoutAgreements\Model\ResourceModel\Agreement\CollectionFactory $termsCollection,
-        \Magento\Framework\Module\Manager $moduleManager
-    ) {
-        parent::__construct($scopeConfig, $attachmentFactory, $pdfRenderer, $termsCollection);
-        $this->moduleManager = $moduleManager;
-    }
-
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
 
@@ -34,7 +21,7 @@ class AbstractSendOrderObserver extends AbstractObserver
          * @var $order \Magento\Sales\Api\Data\OrderInterface
          */
         $order = $observer->getOrder();
-        if ($this->moduleManager->isEnabled('Fooman_PrintOrderPdf')
+        if ($this->pdfRenderer->canRender()
             && $this->scopeConfig->getValue(
                 static::XML_PATH_ATTACH_PDF,
                 \Magento\Store\Model\ScopeInterface::SCOPE_STORE,

@@ -21,11 +21,12 @@ class AbstractSendInvoiceObserver extends AbstractObserver
          * @var $invoice \Magento\Sales\Api\Data\InvoiceInterface
          */
         $invoice = $observer->getInvoice();
-        if ($this->scopeConfig->getValue(
-            static::XML_PATH_ATTACH_PDF,
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $invoice->getStoreId()
-        )
+        if ($this->pdfRenderer->canRender()
+            && $this->scopeConfig->getValue(
+                static::XML_PATH_ATTACH_PDF,
+                \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+                $invoice->getStoreId()
+            )
         ) {
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$invoice]),

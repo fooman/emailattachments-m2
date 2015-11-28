@@ -21,11 +21,12 @@ class AbstractSendShipmentObserver extends AbstractObserver
          * @var $shipment \Magento\Sales\Api\Data\ShipmentInterface
          */
         $shipment = $observer->getShipment();
-        if ($this->scopeConfig->getValue(
-            static::XML_PATH_ATTACH_PDF,
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $shipment->getStoreId()
-        )
+        if ($this->pdfRenderer->canRender()
+            && $this->scopeConfig->getValue(
+                static::XML_PATH_ATTACH_PDF,
+                \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+                $shipment->getStoreId()
+            )
         ) {
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$shipment]),

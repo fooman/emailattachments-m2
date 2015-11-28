@@ -41,14 +41,9 @@
     <preference for="Fooman\EmailAttachments\Model\Api\AttachmentContainerInterface"
                 type="Fooman\EmailAttachments\Model\AttachmentContainer"/>
 
-    <virtualType name="fooman_emailattachments_order_pdf_renderer" type="\Fooman\EmailAttachments\Model\PdfRenderer">
-        <arguments>
-            <argument name="pdfRenderer" xsi:type="object">\Fooman\PrintOrderPdf\Model\Pdf\Order</argument>
-        </arguments>
-    </virtualType>
     <type name="\Fooman\EmailAttachments\Observer\AbstractSendOrderObserver">
         <arguments>
-            <argument name="pdfRenderer" xsi:type="object">fooman_emailattachments_order_pdf_renderer</argument>
+            <argument name="pdfRenderer" xsi:type="object">\Fooman\EmailAttachments\Model\NoneRenderer</argument>
         </arguments>
     </type>
 
