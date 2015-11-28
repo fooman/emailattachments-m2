@@ -5,11 +5,12 @@
   "type": "magento2-module",
   "autoload": {
     "psr-4": {
-      "Fooman\\EmailAttachments\\": "app/code/Fooman/EmailAttachments/"
+      "Fooman\\EmailAttachments\\": ""
     }
   },
   "suggest": {
-    "fooman/printorderpdf":"Allows attaching the order confirmation pdf to the order confirmation email"
+    "fooman/printorderpdf":"Allows attaching the order confirmation pdf to the order confirmation email",
+    "fooman/pdfcustomiser":"Allows to easily customise the sales pdfs while also reducing file sizes "
   }
 }
 
