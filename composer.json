@@ -1,31 +1,15 @@
 {
-    "name": "fooman/emailattachments",
-    "license": "OSL-3.0",
-    "description": "Automatically attach pdf documents to outgoing sales emails. Print Order Confirmation documents.",
-    "require": {
-        "magento/magento-composer-installer": "*"
-    },
-    "type": "magento2-module",
-    "autoload": {
-        "psr-4": {
-            "Fooman\\": "app/code/Fooman/"
-        }
-    },
-    "extra": {
-        "map": [
-            [
-                "app/code/Fooman/EmailAttachments/*",
-                "Fooman/EmailAttachments"
-            ]
-        ]
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://packages.magento.com/"
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "fooman/emailattachments",
+  "license": "OSL-3.0",
+  "description": "Automatically attach pdf documents to outgoing sales emails. Print Order Confirmation documents.",
+  "type": "magento2-module",
+  "autoload": {
+    "psr-4": {
+      "Fooman\\EmailAttachments\\": "app/code/Fooman/EmailAttachments/"
+    }
+  },
+  "suggest": {
+    "fooman/printorderpdf":"Allows attaching the order confirmation pdf to the order confirmation email"
+  }
 }
 
