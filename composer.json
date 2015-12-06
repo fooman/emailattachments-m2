@@ -6,7 +6,7 @@
   "version": "1.0.1",
   "autoload": {
     "psr-4": {
-      "Fooman\\EmailAttachments\\": ""
+      "Fooman\\EmailAttachments\\": "src/"
     }
   },
   "suggest": {
