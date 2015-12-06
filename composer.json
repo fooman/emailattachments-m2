@@ -1,5 +1,5 @@
 {
-  "name": "fooman/emailattachments",
+  "name": "fooman/emailattachments-m2",
   "license": "OSL-3.0",
   "description": "Automatically attach pdf documents to outgoing sales emails. Print Order Confirmation documents.",
   "type": "magento2-module",
@@ -10,8 +10,8 @@
     }
   },
   "suggest": {
-    "fooman/printorderpdf":"Allows attaching the order confirmation pdf to the order confirmation email",
-    "fooman/pdfcustomiser":"Allows to easily customise the sales pdfs while also reducing file sizes "
+    "fooman/printorderpdf-m2":"Allows attaching the order confirmation pdf to the order confirmation email",
+    "fooman/pdfcustomiser-m2":"Allows to easily customise the sales pdfs while also reducing file sizes "
   }
 }
 
