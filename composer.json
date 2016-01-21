@@ -3,7 +3,7 @@
   "license": "OSL-3.0",
   "description": "Automatically attach pdf documents to outgoing sales emails. Print Order Confirmation documents.",
   "type": "magento2-module",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "autoload": {
     "psr-4": {
       "Fooman\\EmailAttachments\\": "src/"
