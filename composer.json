@@ -7,7 +7,7 @@
   "require": {
     "fooman/pdfcore-m2":"~3.0.0",
     "fooman/printorderpdf-m2":"~2.0.0",
-    "fooman/pdfcustomiser-m2":"dev-feature/emailAttachmentsCompatibility"
+    "fooman/pdfcustomiser-m2":"dev-emailattachments"
   },
   "autoload": {
     "psr-4": {
