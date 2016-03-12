@@ -7,7 +7,7 @@
   "repositories": [
     {
         "type": "vcs",
-        "url": "https://bitbucket.org/fooman/fm0021_pdfcustomiser_m2/"
+        "url": "git@bitbucket.org:fooman/fm0021_pdfcustomiser_m2.git"
     }
   ],
   "require": {
