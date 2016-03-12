@@ -6,7 +6,7 @@
   "version": "2.0.0",
   "repositories": [
     {
-        "type": "git",
+        "type": "vcs",
         "url": "https://bitbucket.org/fooman/fm0021_pdfcustomiser_m2/"
     }
   ],
