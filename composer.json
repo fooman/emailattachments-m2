@@ -23,6 +23,7 @@
       "src/registration.php"
     ]
   },
+  "minimum-stability": "dev",
   "suggest": {
     "fooman/printorderpdf-m2":"Allows attaching the order confirmation pdf to the order confirmation email",
     "fooman/pdfcustomiser-m2":"Allows to easily customise the sales pdfs while also reducing file sizes "
