@@ -31,6 +31,21 @@ class BeforeSendOrderObserverTest extends Common
 
     /**
      * @magentoDataFixture   Magento/Sales/_files/order.php
+     * @magentoConfigFixture current_store sales_email/order/attachpdf 1
+     */
+    public function testWithAttachmentWithPdfCustomiser()
+    {
+        $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
+        $order = $this->sendEmail();
+        if (!$moduleManager->isEnabled('Fooman_PdfCustomiser')) {
+            $this->markTestSkipped('Fooman_PdfCustomiser required for attaching order pdf');
+        }
+        $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')->getPdf([$order]);
+        $this->compareWithReceivedPdf($pdf);
+    }
+
+    /**
+     * @magentoDataFixture   Magento/Sales/_files/order.php
      * @magentoDataFixture   Magento/CheckoutAgreements/_files/agreement_active_with_html_content.php
      * @magentoConfigFixture current_store sales_email/order/attachagreement 1
      */
