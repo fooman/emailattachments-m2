@@ -7,7 +7,7 @@
   "repositories": [
     {
         "type": "git",
-        "url": "https://bitbucket.org/fooman/fm0021_pdfcustomiser_m2/branch/emailattachments"
+        "url": "https://bitbucket.org/fooman/fm0021_pdfcustomiser_m2/"
     }
   ],
   "require": {
