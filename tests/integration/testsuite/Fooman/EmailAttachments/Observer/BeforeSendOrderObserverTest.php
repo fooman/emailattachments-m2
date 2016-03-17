@@ -24,7 +24,7 @@ class BeforeSendOrderObserverTest extends Common
         $order = $this->sendEmail();
 
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
-            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')->getPdf([$order]);
+            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')->getPdfAsString([$order]);
             $this->compareWithReceivedPdf($pdf);
         }
         else {
