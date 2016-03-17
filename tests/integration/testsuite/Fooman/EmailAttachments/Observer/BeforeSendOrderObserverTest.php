@@ -35,9 +35,9 @@ class BeforeSendOrderObserverTest extends Common
      */
     public function testWithAttachmentWithPdfCustomiser()
     {
-        var_dump($order->getId());
         $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         $order = $this->sendEmail();
+        var_dump($order->getId());
         if (!$moduleManager->isEnabled('Fooman_PdfCustomiser')) {
             $this->markTestSkipped('Fooman_PdfCustomiser required for attaching order pdf');
         }
