@@ -22,27 +22,18 @@ class BeforeSendOrderObserverTest extends Common
     {
         $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         $order = $this->sendEmail();
-        if (!$moduleManager->isEnabled('Fooman_PrintOrderPdf')) {
-            $this->markTestSkipped('Fooman_PrintOrderPdf required for attaching order pdf');
-        }
-        $pdf = $this->objectManager->create('\Fooman\PrintOrderPdf\Model\Pdf\Order')->getPdf([$order]);
-        $this->compareWithReceivedPdf($pdf);
-    }
 
-    /**
-     * @magentoDataFixture   Magento/Sales/_files/order.php
-     * @magentoConfigFixture current_store sales_email/order/attachpdf 1
-     */
-    public function testWithAttachmentWithPdfCustomiser()
-    {
-        $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
-        $order = $this->sendEmail();
-        var_dump($order->getId());
-        if (!$moduleManager->isEnabled('Fooman_PdfCustomiser')) {
-            $this->markTestSkipped('Fooman_PdfCustomiser required for attaching order pdf');
+        if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
+            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')->getPdf([$order]);
+            $this->compareWithReceivedPdf($pdf);
         }
-        $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')->getPdf([$order]);
-        $this->compareWithReceivedPdf($pdf);
+        else {
+            if (!$moduleManager->isEnabled('Fooman_PrintOrderPdf')) {
+                $this->markTestSkipped('Fooman_PrintOrderPdf required for attaching order pdf');
+            }
+            $pdf = $this->objectManager->create('\Fooman\PrintOrderPdf\Model\Pdf\Order')->getPdf([$order]);
+            $this->compareWithReceivedPdf($pdf);    
+        }
     }
 
     /**
