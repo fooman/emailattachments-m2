@@ -17,6 +17,7 @@ class BeforeSendOrderObserverTest extends Common
     /**
      * @magentoDataFixture   Magento/Sales/_files/order.php
      * @magentoConfigFixture current_store sales_email/order/attachpdf 1
+     * @magentoAppIsolation  enabled
      */
     public function testWithAttachment()
     {
@@ -73,6 +74,7 @@ class BeforeSendOrderObserverTest extends Common
     /**
      * @magentoDataFixture   Magento/Sales/_files/order.php
      * @magentoDataFixture   Magento/CheckoutAgreements/_files/agreement_active_with_html_content.php
+     * @magentoAppIsolation  enabled
      * @magentoConfigFixture current_store sales_email/order/attachagreement 1
      * @magentoConfigFixture current_store sales_email/order/attachpdf 1
      */
