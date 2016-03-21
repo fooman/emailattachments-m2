@@ -58,6 +58,15 @@ class Common extends \PHPUnit_Framework_TestCase
         $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
     }
 
+    /**
+     * @param $pdf
+     */
+    protected function comparePdfAsStringWithReceivedPdf($pdf)
+    {
+        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
+        $this->assertEquals(strlen($pdf), strlen(base64_decode($pdfAttachment['Body'])));
+    }
+
     protected function checkReceivedHtmlTermsAttachment()
     {
         $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/html; charset=UTF-8');

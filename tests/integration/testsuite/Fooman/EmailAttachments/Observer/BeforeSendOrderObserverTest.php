@@ -11,6 +11,7 @@ namespace Fooman\EmailAttachments\Observer;
 
 /**
  * @magentoAppArea adminhtml
+ * @magentoAppIsolation enabled
  */
 class BeforeSendOrderObserverTest extends Common
 {
@@ -26,7 +27,7 @@ class BeforeSendOrderObserverTest extends Common
 
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
             $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')->getPdfAsString([$order]);
-            $this->compareWithReceivedPdf($pdf);
+            $this->comparePdfAsStringWithReceivedPdf($pdf);
         }
         else {
             if (!$moduleManager->isEnabled('Fooman_PrintOrderPdf')) {
