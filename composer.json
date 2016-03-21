@@ -11,7 +11,6 @@
     }
   ],
   "require": {
-    "fooman/pdfcore-m2":"dev-master",
     "fooman/printorderpdf-m2":"~2.0.0",
     "fooman/pdfcustomiser-m2":"dev-emailattachments"
   },
