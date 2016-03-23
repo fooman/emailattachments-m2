@@ -23,7 +23,7 @@ class BeforeSendShipmentCommentObserverTest extends Common
     public function testWithAttachment()
     {
         $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
-        $invoice = $this->sendEmail();
+        $shipment = $this->sendEmail();
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
             $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\ShipmentAdapter')->getPdfAsString([$shipment]);
             $this->comparePdfAsStringWithReceivedPdf($pdf);
