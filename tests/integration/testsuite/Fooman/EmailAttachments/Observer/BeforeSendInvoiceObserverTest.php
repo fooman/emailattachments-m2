@@ -11,19 +11,27 @@ namespace Fooman\EmailAttachments\Observer;
 
 /**
  * @magentoAppArea adminhtml
+ * @magentoAppIsolation  enabled
  */
 class BeforeSendInvoiceObserverTest extends Common
 {
     /**
      * @magentoDataFixture   Magento/Sales/_files/invoice.php
      * @magentoConfigFixture current_store sales_email/invoice/attachpdf 1
+     * @magentoAppIsolation  enabled
      */
     public function testWithAttachment()
     {
         $invoice = $this->sendEmail();
-        $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
-            ->create('\Magento\Sales\Model\Order\Pdf\Invoice')->getPdf([$invoice]);
-        $this->compareWithReceivedPdf($pdf);
+        if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
+            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\InvoiceAdapter')->getPdfAsString([$invoice]);
+            $this->comparePdfAsStringWithReceivedPdf($pdf);
+        }
+        else {
+            $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
+                ->create('\Magento\Sales\Model\Order\Pdf\Invoice')->getPdf([$invoice]);
+            $this->compareWithReceivedPdf($pdf);
+        }
     }
 
     /**
