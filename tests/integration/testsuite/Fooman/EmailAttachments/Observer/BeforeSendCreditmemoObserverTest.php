@@ -18,12 +18,14 @@ class BeforeSendCreditmemoObserverTest extends Common
     /**
      * @magentoDataFixture   Magento/Sales/_files/creditmemo_with_list.php
      * @magentoConfigFixture current_store sales_email/creditmemo/attachpdf 1
+     * @magentoAppIsolation  enabled
      */
     public function testWithAttachment()
     {
+        $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         $creditmemo = $this->sendEmail();
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
-            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\CreditmemoAdapter')->getPdfAsString([$order]);
+            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\CreditmemoAdapter')->getPdfAsString([$creditmemo]);
             $this->comparePdfAsStringWithReceivedPdf($pdf);
         }
         else {

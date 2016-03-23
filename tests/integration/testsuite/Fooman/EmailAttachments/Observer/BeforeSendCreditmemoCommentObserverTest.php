@@ -22,9 +22,10 @@ class BeforeSendCreditmemoCommentObserverTest extends Common
      */
     public function testWithAttachment()
     {
+        $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         $creditmemo = $this->sendEmail();
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
-            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\CreditmemoAdapter')->getPdfAsString([$order]);
+            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\CreditmemoAdapter')->getPdfAsString([$creditmemo]);
             $this->comparePdfAsStringWithReceivedPdf($pdf);
         }
         else {
