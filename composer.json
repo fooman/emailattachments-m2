@@ -4,16 +4,6 @@
   "description": "Automatically attach pdf documents to outgoing sales emails. Print Order Confirmation documents.",
   "type": "magento2-module",
   "version": "2.0.0",
-  "repositories": [
-    {
-        "type": "vcs",
-        "url": "git@bitbucket.org:fooman/fm0021_pdfcustomiser_m2.git"
-    }
-  ],
-  "require": {
-    "fooman/printorderpdf-m2":"~2.0.0",
-    "fooman/pdfcustomiser-m2":"dev-emailattachments"
-  },
   "autoload": {
     "psr-4": {
       "Fooman\\EmailAttachments\\": "src/"
@@ -22,10 +12,8 @@
       "src/registration.php"
     ]
   },
-  "minimum-stability": "dev",
   "suggest": {
     "fooman/printorderpdf-m2":"Allows attaching the order confirmation pdf to the order confirmation email",
     "fooman/pdfcustomiser-m2":"Allows to easily customise the sales pdfs while also reducing file sizes "
   }
 }
-
