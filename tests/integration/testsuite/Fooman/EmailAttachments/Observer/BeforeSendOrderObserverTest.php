@@ -10,7 +10,7 @@
 namespace Fooman\EmailAttachments\Observer;
 
 /**
- * @magentoAppArea adminhtml
+ * @magentoAppArea      adminhtml
  * @magentoAppIsolation enabled
  */
 class BeforeSendOrderObserverTest extends Common
@@ -26,15 +26,16 @@ class BeforeSendOrderObserverTest extends Common
         $order = $this->sendEmail();
 
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
-            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')->getPdfAsString([$order]);
+            $pdf = $this->objectManager
+                ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')
+                ->getPdfAsString([$order]);
             $this->comparePdfAsStringWithReceivedPdf($pdf);
-        }
-        else {
+        } else {
             if (!$moduleManager->isEnabled('Fooman_PrintOrderPdf')) {
                 $this->markTestSkipped('Fooman_PrintOrderPdf required for attaching order pdf');
             }
             $pdf = $this->objectManager->create('\Fooman\PrintOrderPdf\Model\Pdf\Order')->getPdf([$order]);
-            $this->compareWithReceivedPdf($pdf);    
+            $this->compareWithReceivedPdf($pdf);
         }
     }
 

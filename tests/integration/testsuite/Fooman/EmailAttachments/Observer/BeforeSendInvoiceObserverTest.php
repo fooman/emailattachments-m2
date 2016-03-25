@@ -10,7 +10,7 @@
 namespace Fooman\EmailAttachments\Observer;
 
 /**
- * @magentoAppArea adminhtml
+ * @magentoAppArea       adminhtml
  * @magentoAppIsolation  enabled
  */
 class BeforeSendInvoiceObserverTest extends Common
@@ -25,10 +25,11 @@ class BeforeSendInvoiceObserverTest extends Common
         $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         $invoice = $this->sendEmail();
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
-            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\InvoiceAdapter')->getPdfAsString([$invoice]);
+            $pdf = $this->objectManager
+                ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\InvoiceAdapter')
+                ->getPdfAsString([$invoice]);
             $this->comparePdfAsStringWithReceivedPdf($pdf);
-        }
-        else {
+        } else {
             $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
                 ->create('\Magento\Sales\Model\Order\Pdf\Invoice')->getPdf([$invoice]);
             $this->compareWithReceivedPdf($pdf);

@@ -10,7 +10,7 @@
 namespace Fooman\EmailAttachments\Observer;
 
 /**
- * @magentoAppArea adminhtml
+ * @magentoAppArea       adminhtml
  * @magentoAppIsolation  enabled
  */
 class BeforeSendCreditmemoCommentObserverTest extends Common
@@ -25,10 +25,11 @@ class BeforeSendCreditmemoCommentObserverTest extends Common
         $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         $creditmemo = $this->sendEmail();
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
-            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\CreditmemoAdapter')->getPdfAsString([$creditmemo]);
+            $pdf = $this->objectManager
+                ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\CreditmemoAdapter')
+                ->getPdfAsString([$creditmemo]);
             $this->comparePdfAsStringWithReceivedPdf($pdf);
-        }
-        else {
+        } else {
             $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
                 ->create('\Magento\Sales\Model\Order\Pdf\Creditmemo')->getPdf([$creditmemo]);
             $this->compareWithReceivedPdf($pdf);

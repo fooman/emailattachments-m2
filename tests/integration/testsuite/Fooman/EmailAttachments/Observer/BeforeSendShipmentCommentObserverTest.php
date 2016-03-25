@@ -10,7 +10,7 @@
 namespace Fooman\EmailAttachments\Observer;
 
 /**
- * @magentoAppArea adminhtml
+ * @magentoAppArea       adminhtml
  * @magentoAppIsolation  enabled
  */
 class BeforeSendShipmentCommentObserverTest extends Common
@@ -25,10 +25,11 @@ class BeforeSendShipmentCommentObserverTest extends Common
         $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         $shipment = $this->sendEmail();
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
-            $pdf = $this->objectManager->create('\Fooman\PdfCustomiser\Model\PdfRenderer\ShipmentAdapter')->getPdfAsString([$shipment]);
+            $pdf = $this->objectManager
+                ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\ShipmentAdapter')
+                ->getPdfAsString([$shipment]);
             $this->comparePdfAsStringWithReceivedPdf($pdf);
-        }
-        else {
+        } else {
             $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
                 ->create('\Magento\Sales\Model\Order\Pdf\Shipment')->getPdf([$shipment]);
             $this->compareWithReceivedPdf($pdf);
