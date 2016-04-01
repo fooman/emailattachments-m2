@@ -10,7 +10,7 @@
 
 ## [2.0.0] - 2016-01-21
 ### Changed
-- Change project folder structure to src/ and tests/
+- Change project folder structure to src/ and tests/ (not applicable for Marketplace version)
 
 ## [1.0.0] - 2015-11-29
 ### Added
