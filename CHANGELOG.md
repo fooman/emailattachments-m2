@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [2.0.3] 2016-04-03
 ### Fixed
 - Add missing configuration setting for attaching T&Cs to shipping email
 
