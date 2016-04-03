@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [2.0.2] 2016-04-01
 ### Changed
 - Release for Marketplace
 
