@@ -132,6 +132,18 @@
                     <tooltip>When set to Yes, your packing slip pdf document will be
                         automatically attached to the shipment email.</tooltip>
                 </field>
+                <field id="attachagreement"
+                       translate="label"
+                       type="select"
+                       sortOrder="250"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Attach Terms and Conditions</label>
+                    <tooltip><![CDATA[When set to Yes, your Terms and Conditions
+                                (from <b>Stores &gt; Terms and Conditions</b>) will be automatically attached to the email.]]></tooltip>
+                </field>
             </group>
             <group id="shipment_comment">
                 <field id="attachpdf"
