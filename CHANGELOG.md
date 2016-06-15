@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Widen dependencies in preparation for Magento 2.1.0
 
 ## [2.0.3] 2016-04-03
 ### Fixed

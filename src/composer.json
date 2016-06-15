@@ -19,8 +19,8 @@
     }
   ],
   "require": {
-    "magento/module-backend": "~100.0.2",
-    "magento/module-sales": "~100.0.2"
+    "magento/module-backend": "^100.0.2",
+    "magento/module-sales": "^100.0.2"
   },
   "require-dev": {
     "phpunit/phpunit": "^4.5"
