@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Add note to "Attach Order as Pdf" that it requires the Print Order Pdf extension
 
 ## [2.0.4] 2016-06-15
 ### Changed
