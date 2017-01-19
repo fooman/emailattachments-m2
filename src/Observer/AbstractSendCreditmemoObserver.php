@@ -30,7 +30,7 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
         ) {
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$creditmemo]),
-                $this->pdfRenderer->getFileName(__('Credit Memo ' . $creditmemo->getIncrementId())),
+                $this->pdfRenderer->getFileName(__('Credit Memo') . $creditmemo->getIncrementId()),
                 $observer->getAttachmentContainer()
             );
         }
