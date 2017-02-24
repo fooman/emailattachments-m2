@@ -1,0 +1,5 @@
+# Autodetect text files
+* text=auto
+
+*.csv eol=lf
+*.php eol=lf
