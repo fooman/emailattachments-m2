@@ -3,7 +3,7 @@
   "license": "OSL-3.0",
   "description": "Automatically attach pdf and terms and conditions documents to outgoing sales emails.",
   "type": "magento2-module",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "autoload": {
     "psr-4": {
       "Fooman\\EmailAttachments\\": ""
