@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Fixed
+- Translations of file names (thanks Manuel)
 
 ## [2.0.5] 2016-09-22
 ### Added
