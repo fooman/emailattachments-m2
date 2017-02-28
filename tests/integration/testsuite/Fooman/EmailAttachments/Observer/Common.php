@@ -59,12 +59,16 @@ class Common extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $pdf
+     * @param      $pdf
+     * @param bool $title
      */
-    protected function comparePdfAsStringWithReceivedPdf($pdf)
+    protected function comparePdfAsStringWithReceivedPdf($pdf, $title = false)
     {
         $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
         $this->assertEquals(strlen($pdf), strlen(base64_decode($pdfAttachment['Body'])));
+        if ($title !== false) {
+            $this->assertEquals($title, $this->extractFilename($pdfAttachment));
+        }
     }
 
     protected function checkReceivedHtmlTermsAttachment()
@@ -77,5 +81,11 @@ class Common extends \PHPUnit_Framework_TestCase
     {
         $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/plain');
         $this->assertContains('Checkout agreement content: TEXT', base64_decode($termsAttachment['Body']));
+    }
+
+    protected function extractFilename($input)
+    {
+        $input = substr($input['Headers']['Content-Disposition'][0], strlen('attachment; filename="=?utf-8?B?'), -2);
+        return base64_decode($input);
     }
 }

@@ -28,7 +28,10 @@ class BeforeSendShipmentObserverTest extends Common
             $pdf = $this->objectManager
                 ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\ShipmentAdapter')
                 ->getPdfAsString([$shipment]);
-            $this->comparePdfAsStringWithReceivedPdf($pdf);
+            $this->comparePdfAsStringWithReceivedPdf(
+                $pdf,
+                sprintf('PACKINGSLIP_%s.pdf', $shipment->getIncrementId())
+            );
         } else {
             $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
                 ->create('\Magento\Sales\Model\Order\Pdf\Shipment')->getPdf([$shipment]);

@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Ability for integration test to check for attachment name
 
 ## [2.0.6] 2017-02-26
 ### Fixed

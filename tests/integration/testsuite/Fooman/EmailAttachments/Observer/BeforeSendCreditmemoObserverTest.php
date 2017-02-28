@@ -28,7 +28,10 @@ class BeforeSendCreditmemoObserverTest extends Common
             $pdf = $this->objectManager
                 ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\CreditmemoAdapter')
                 ->getPdfAsString([$creditmemo]);
-            $this->comparePdfAsStringWithReceivedPdf($pdf);
+            $this->comparePdfAsStringWithReceivedPdf(
+                $pdf,
+                sprintf('CREDITMEMO_%s.pdf', $creditmemo->getIncrementId())
+            );
         } else {
             $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
                 ->create('\Magento\Sales\Model\Order\Pdf\Creditmemo')->getPdf([$creditmemo]);

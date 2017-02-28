@@ -28,7 +28,7 @@ class BeforeSendInvoiceObserverTest extends Common
             $pdf = $this->objectManager
                 ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\InvoiceAdapter')
                 ->getPdfAsString([$invoice]);
-            $this->comparePdfAsStringWithReceivedPdf($pdf);
+            $this->comparePdfAsStringWithReceivedPdf($pdf, sprintf('TAXINVOICE_%s.pdf', $invoice->getIncrementId()));
         } else {
             $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
                 ->create('\Magento\Sales\Model\Order\Pdf\Invoice')->getPdf([$invoice]);

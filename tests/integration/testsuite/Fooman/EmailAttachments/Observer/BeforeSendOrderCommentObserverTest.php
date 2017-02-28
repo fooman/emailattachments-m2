@@ -29,7 +29,10 @@ class BeforeSendOrderCommentObserverTest extends Common
             $pdf = $this->objectManager
                 ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\OrderAdapter')
                 ->getPdfAsString([$order]);
-            $this->comparePdfAsStringWithReceivedPdf($pdf);
+            $this->comparePdfAsStringWithReceivedPdf(
+                $pdf,
+                sprintf('ORDERCONFIRMATION_%s.pdf', $order->getIncrementId())
+            );
         } else {
             if (!$moduleManager->isEnabled('Fooman_PrintOrderPdf')) {
                 $this->markTestSkipped('Fooman_PrintOrderPdf required for attaching order pdf');
