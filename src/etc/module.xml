@@ -15,6 +15,7 @@
         <sequence>
             <module name="Magento_Backend"/>
             <module name="Magento_Sales"/>
+            <module name="Magento_CheckoutAgreements"/>
         </sequence>
     </module>
 </config>
