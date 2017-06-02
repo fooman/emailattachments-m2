@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [2.0.8] 2017-06-02
 ### Fixed
 - Make CheckoutAgreements dependency explicit
 
