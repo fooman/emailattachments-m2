@@ -42,7 +42,6 @@ class ShipmentSender extends \Magento\Sales\Model\Order\Email\Sender\ShipmentSen
         $this->attachmentContainer = $attachmentContainer;
     }
 
-
     public function send(\Magento\Sales\Model\Order\Shipment $shipment, $forceSyncMode = false)
     {
         $this->eventManager->dispatch(
