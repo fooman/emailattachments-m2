@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Support for PHP 7.1
 
 ## [2.0.8] 2017-06-02
 ### Fixed
