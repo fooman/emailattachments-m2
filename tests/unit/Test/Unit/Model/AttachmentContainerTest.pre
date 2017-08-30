@@ -17,7 +17,6 @@ class AttachmentContainerTest extends \PHPUnit\Framework\TestCase
     const TEST_DISPOSITION = 'Disposition';
     const TEST_ENCODING = 'ENCODING';
 
-
     /**
      * @var \Fooman\EmailAttachments\Model\AttachmentContainer
      */
