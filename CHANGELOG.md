@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [2.1.0] 2017-09-01
 ### Added
 - Support for PHP 7.1
