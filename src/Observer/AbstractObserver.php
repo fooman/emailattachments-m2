@@ -70,7 +70,7 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
 
         foreach ($agreements as $agreement) {
             /**
-             * @var $agreement \Magento\CheckoutAgreements\Api\Data\AgreementInterfacet
+             * @var $agreement \Magento\CheckoutAgreements\Api\Data\AgreementInterface
              */
             if ($agreement->getIsHtml()) {
                 $this->attachHtml(
