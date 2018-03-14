@@ -22,17 +22,26 @@ class BeforeSendInvoiceObserverTest extends Common
      */
     public function testWithAttachment()
     {
-        $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         $invoice = $this->sendEmail();
+        $this->comparePdfs($invoice);
+        return $invoice;
+    }
+
+    private function comparePdfs($invoice, $number = 1)
+    {
+        $moduleManager = $this->objectManager->create('Magento\Framework\Module\Manager');
         if ($moduleManager->isEnabled('Fooman_PdfCustomiser')) {
             $pdf = $this->objectManager
                 ->create('\Fooman\PdfCustomiser\Model\PdfRenderer\InvoiceAdapter')
                 ->getPdfAsString([$invoice]);
-            $this->comparePdfAsStringWithReceivedPdf($pdf, sprintf('TAXINVOICE_%s.pdf', $invoice->getIncrementId()));
+            $this->comparePdfAsStringWithReceivedPdf(
+                $pdf,
+                sprintf('TAXINVOICE_%s.pdf', $invoice->getIncrementId()),
+                $number
+            );
         } else {
-            $pdf = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
-                ->create('\Magento\Sales\Model\Order\Pdf\Invoice')->getPdf([$invoice]);
-            $this->compareWithReceivedPdf($pdf);
+            $pdf = $this->objectManager->create('\Magento\Sales\Model\Order\Pdf\Invoice')->getPdf([$invoice]);
+            $this->compareWithReceivedPdf($pdf, $number);
         }
     }
 
@@ -80,6 +89,40 @@ class BeforeSendInvoiceObserverTest extends Common
     {
         $this->testWithAttachment();
         $this->checkReceivedHtmlTermsAttachment();
+    }
+
+    /**
+     * @magentoDataFixture   Magento/Sales/_files/invoice.php
+     * @magentoDataFixture   Magento/CheckoutAgreements/_files/agreement_active_with_html_content.php
+     * @magentoAppIsolation  enabled
+     * @magentoConfigFixture current_store sales_email/invoice/attachagreement 1
+     * @magentoConfigFixture current_store sales_email/invoice/attachpdf 1
+     * @magentoConfigFixture current_store sales_email/invoice/copy_method copy
+     * @magentoConfigFixture current_store sales_email/invoice/copy_to copyto@example.com
+     */
+    public function testWithCopyToRecipient()
+    {
+        $invoice = $this->testWithAttachment();
+        $this->checkReceivedHtmlTermsAttachment(1);
+        $this->checkReceivedHtmlTermsAttachment(2);
+        $this->comparePdfs($invoice, 2);
+    }
+
+    /**
+     * @magentoDataFixture   Magento/Sales/_files/invoice.php
+     * @magentoDataFixture   Magento/CheckoutAgreements/_files/agreement_active_with_html_content.php
+     * @magentoAppIsolation  enabled
+     * @magentoConfigFixture current_store sales_email/invoice/attachagreement 1
+     * @magentoConfigFixture current_store sales_email/invoice/attachpdf 1
+     * @magentoConfigFixture current_store sales_email/invoice/copy_method bcc
+     * @magentoConfigFixture current_store sales_email/invoice/copy_to copyto@example.com
+     */
+    public function testWithBccRecipient()
+    {
+        $invoice = $this->testWithAttachment();
+        $this->checkReceivedHtmlTermsAttachment(1);
+        $this->checkReceivedHtmlTermsAttachment(2);
+        $this->comparePdfs($invoice, 2);
     }
 
     protected function getInvoice()

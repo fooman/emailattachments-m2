@@ -31,11 +31,11 @@ class Common extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function getLastEmail()
+    public function getLastEmail($number = 1)
     {
-        $this->mailhogClient->setUri(self::BASE_URL . 'v2/messages?limit=1');
+        $this->mailhogClient->setUri(self::BASE_URL . 'v2/messages?limit=' . $number);
         $lastEmail = json_decode($this->mailhogClient->request()->getBody(), true);
-        $lastEmailId = $lastEmail['items'][0]['ID'];
+        $lastEmailId = $lastEmail['items'][$number - 1]['ID'];
         $this->mailhogClient->resetParameters(true);
         $this->mailhogClient->setUri(self::BASE_URL . 'v1/messages/' . $lastEmailId);
         return json_decode($this->mailhogClient->request()->getBody(), true);
@@ -59,35 +59,37 @@ class Common extends \PHPUnit\Framework\TestCase
 
     /**
      * @param $pdf
+     * @param $number
      */
-    protected function compareWithReceivedPdf($pdf)
+    protected function compareWithReceivedPdf($pdf, $number = 1)
     {
-        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
+        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail($number), 'application/pdf');
         $this->assertEquals(strlen($pdf->render()), strlen(base64_decode($pdfAttachment['Body'])));
     }
 
     /**
      * @param      $pdf
      * @param bool $title
+     * @param $number
      */
-    protected function comparePdfAsStringWithReceivedPdf($pdf, $title = false)
+    protected function comparePdfAsStringWithReceivedPdf($pdf, $title = false, $number = 1)
     {
-        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'application/pdf');
+        $pdfAttachment = $this->getAttachmentOfType($this->getLastEmail($number), 'application/pdf');
         $this->assertEquals(strlen($pdf), strlen(base64_decode($pdfAttachment['Body'])));
         if ($title !== false) {
             $this->assertEquals($title, $this->extractFilename($pdfAttachment));
         }
     }
 
-    protected function checkReceivedHtmlTermsAttachment()
+    protected function checkReceivedHtmlTermsAttachment($number = 1)
     {
-        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/html; charset=UTF-8');
+        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail($number), 'text/html; charset=UTF-8');
         $this->assertContains('Checkout agreement content: <b>HTML</b>', base64_decode($termsAttachment['Body']));
     }
 
-    protected function checkReceivedTxtTermsAttachment()
+    protected function checkReceivedTxtTermsAttachment($number = 1)
     {
-        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail(), 'text/plain');
+        $termsAttachment = $this->getAttachmentOfType($this->getLastEmail($number), 'text/plain');
         $this->assertContains('Checkout agreement content: TEXT', base64_decode($termsAttachment['Body']));
     }
 
