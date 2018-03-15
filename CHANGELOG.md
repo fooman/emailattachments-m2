@@ -1,6 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Package changed into a Metapackage - Implementation moved into fooman/emailattachments-implementation-m2 package
+- Semantic versioning will only be applied to the implementation package
+- Attachments are also added to emails sent separately
 
 ## [2.1.0] 2017-09-01
 ### Added
