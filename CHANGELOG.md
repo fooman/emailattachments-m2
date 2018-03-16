@@ -1,6 +1,6 @@
 # Change Log
 
-## [3.0.0] 2018-03-15
+## [Unreleased]
 ### Changed
 - Package changed into a Metapackage - Implementation moved into fooman/emailattachments-implementation-m2 package
 - Semantic versioning will only be applied to the implementation package
