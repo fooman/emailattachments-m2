@@ -15,27 +15,35 @@
         <sales_email>
             <order>
                 <attachpdf>0</attachpdf>
+                <filenameformat>Order%number%</filenameformat>
             </order>
             <order_comment>
                 <attachpdf>0</attachpdf>
+                <filenameformat>Order%number%</filenameformat>
             </order_comment>
             <invoice>
                 <attachpdf>0</attachpdf>
+                <filenameformat>Invoice%number%</filenameformat>
             </invoice>
             <invoice_comment>
                 <attachpdf>0</attachpdf>
+                <filenameformat>Invoice%number%</filenameformat>
             </invoice_comment>
             <shipment>
                 <attachpdf>0</attachpdf>
+                <filenameformat>Packing Slip%number%</filenameformat>
             </shipment>
             <shipment_comment>
                 <attachpdf>0</attachpdf>
+                <filenameformat>Packing Slip%number%</filenameformat>
             </shipment_comment>
             <creditmemo>
                 <attachpdf>0</attachpdf>
+                <filenameformat>Credit Memo%number%</filenameformat>
             </creditmemo>
             <creditmemo_comment>
                 <attachpdf>0</attachpdf>
+                <filenameformat>Credit Memo%number%</filenameformat>
             </creditmemo_comment>
         </sales_email>
     </default>

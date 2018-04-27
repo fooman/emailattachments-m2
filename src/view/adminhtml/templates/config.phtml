@@ -1,0 +1,98 @@
+<?php
+/**
+ * @author     Kristof Ringleff
+ * @package    Fooman_EmailAttachments
+ * @copyright  Copyright (c) 2015 Fooman Limited (http://www.fooman.co.nz)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+?>
+<script>
+require(["prototype"], function(){
+
+//<![CDATA[
+    var emailattachments = Class.create();
+    emailattachments.prototype = {
+        setFormValues: function()
+        {
+            if($('sales_email_order_attachpdf') != undefined) {
+              if ($F('sales_email_order_attachpdf') == '1') {
+                 $('sales_email_order_filenameformat').up(1).show();
+              }
+              else {
+                 $('sales_email_order_filenameformat').up(1).hide();
+              }
+            }
+            if($('sales_email_order_comment_attachpdf') != undefined) {
+              if ($F('sales_email_order_comment_attachpdf') == '1') {
+                 $('sales_email_order_comment_filenameformat').up(1).show();
+              }
+              else {
+                 $('sales_email_order_comment_filenameformat').up(1).hide();
+              }
+            }
+            
+            if ($F('sales_email_invoice_attachpdf') == '1') {
+               $('sales_email_invoice_filenameformat').up(1).show();
+            }
+            else {
+               $('sales_email_invoice_filenameformat').up(1).hide();
+            }
+            
+            if ($F('sales_email_invoice_comment_attachpdf') == '1') {
+               $('sales_email_invoice_comment_filenameformat').up(1).show();
+            }
+            else {
+               $('sales_email_invoice_comment_filenameformat').up(1).hide();
+            }
+            
+            if ($F('sales_email_shipment_attachpdf') == '1') {
+               $('sales_email_shipment_filenameformat').up(1).show();
+            }
+            else {
+               $('sales_email_shipment_filenameformat').up(1).hide();
+            }
+            
+            if ($F('sales_email_shipment_comment_attachpdf') == '1') {
+               $('sales_email_shipment_comment_filenameformat').up(1).show();
+            }
+            else {
+               $('sales_email_shipment_comment_filenameformat').up(1).hide();
+            }
+
+            if ($F('sales_email_creditmemo_attachpdf') == '1') {
+               $('sales_email_creditmemo_filenameformat').up(1).show();
+            }
+            else {
+               $('sales_email_creditmemo_filenameformat').up(1).hide();
+            }
+            
+            if ($F('sales_email_creditmemo_comment_attachpdf') == '1') {
+               $('sales_email_creditmemo_comment_filenameformat').up(1).show();
+            }
+            else {
+               $('sales_email_creditmemo_comment_filenameformat').up(1).hide();
+            }
+        },
+        initialize: function()
+        {  
+            this.setFormValues();
+            if($('sales_email_order_attachpdf') != undefined) {
+              Event.observe($('sales_email_order_attachpdf'), 'change', this.setFormValues.bind(this));
+            }
+            if($('sales_email_order_comment_attachpdf') != undefined) {
+              Event.observe($('sales_email_order_comment_attachpdf'), 'change', this.setFormValues.bind(this));
+            }
+            Event.observe($('sales_email_invoice_attachpdf'), 'change', this.setFormValues.bind(this));
+            Event.observe($('sales_email_invoice_comment_attachpdf'), 'change', this.setFormValues.bind(this));
+            Event.observe($('sales_email_shipment_attachpdf'), 'change', this.setFormValues.bind(this));
+            Event.observe($('sales_email_shipment_comment_attachpdf'), 'change', this.setFormValues.bind(this));
+            Event.observe($('sales_email_creditmemo_attachpdf'), 'change', this.setFormValues.bind(this));
+            Event.observe($('sales_email_creditmemo_comment_attachpdf'), 'change', this.setFormValues.bind(this));
+        }
+    };
+    module = new emailattachments();
+    //]]>
+});
+</script>

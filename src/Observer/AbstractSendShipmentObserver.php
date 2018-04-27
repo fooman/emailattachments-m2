@@ -13,6 +13,7 @@ class AbstractSendShipmentObserver extends AbstractObserver
 {
     const XML_PATH_ATTACH_PDF = 'sales_email/shipment/attachpdf';
     const XML_PATH_ATTACH_AGREEMENT = 'sales_email/shipment/attachagreement';
+    const XML_PATH_ATTACH_FILENAMEFORMAT = 'sales_email/shipment/filenameformat';
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
@@ -30,7 +31,7 @@ class AbstractSendShipmentObserver extends AbstractObserver
         ) {
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$shipment]),
-                $this->pdfRenderer->getFileName(__('Packing Slip') . $shipment->getIncrementId()),
+                $this->pdfRenderer->getFileName($this->getAttachmentFilename(static::XML_PATH_ATTACH_FILENAMEFORMAT,$shipment)),
                 $observer->getAttachmentContainer()
             );
         }

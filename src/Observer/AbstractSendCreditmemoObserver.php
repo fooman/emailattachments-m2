@@ -13,6 +13,7 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
 {
     const XML_PATH_ATTACH_PDF = 'sales_email/creditmemo/attachpdf';
     const XML_PATH_ATTACH_AGREEMENT = 'sales_email/creditmemo/attachagreement';
+    const XML_PATH_ATTACH_FILENAMEFORMAT = 'sales_email/creditmemo/filenameformat';
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
@@ -30,7 +31,7 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
         ) {
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$creditmemo]),
-                $this->pdfRenderer->getFileName(__('Credit Memo') . $creditmemo->getIncrementId()),
+                $this->pdfRenderer->getFileName($this->getAttachmentFilename(static::XML_PATH_ATTACH_FILENAMEFORMAT,$creditmemo)),
                 $observer->getAttachmentContainer()
             );
         }

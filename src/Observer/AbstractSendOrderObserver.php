@@ -13,6 +13,7 @@ class AbstractSendOrderObserver extends AbstractObserver
 {
     const XML_PATH_ATTACH_PDF = 'sales_email/order/attachpdf';
     const XML_PATH_ATTACH_AGREEMENT = 'sales_email/order/attachagreement';
+    const XML_PATH_ATTACH_FILENAMEFORMAT = 'sales_email/order/filenameformat';
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
@@ -30,7 +31,7 @@ class AbstractSendOrderObserver extends AbstractObserver
         ) {
             $this->attachPdf(
                 $this->pdfRenderer->getPdfAsString([$order]),
-                $this->pdfRenderer->getFileName(__('Order') . $order->getIncrementId()),
+                $this->pdfRenderer->getFileName($this->getAttachmentFilename(static::XML_PATH_ATTACH_FILENAMEFORMAT,$order)),
                 $observer->getAttachmentContainer()
             );
         }
