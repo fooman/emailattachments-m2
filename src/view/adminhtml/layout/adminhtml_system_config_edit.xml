@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?php
+/**
+ * @author     Kristof Ringleff
+ * @package    Fooman_EmailAttachments
+ * @copyright  Copyright (c) 2015 Fooman Limited (http://www.fooman.co.nz)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="js">
+            <block class="Magento\Backend\Block\Template" name="js.emailattachments.config" template="Fooman_EmailAttachments::config.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

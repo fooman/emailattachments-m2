@@ -27,6 +27,17 @@
                     <tooltip>When set to Yes, your order pdf document will be
                         automatically attached to the order confirmation email.</tooltip>
                 </field>
+                <field id="filenameformat"
+                       translate="label"
+                       type="text"
+                       sortOrder="210"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <frontend_model>Fooman\EmailAttachments\Block\Config\PrintOrderPdf</frontend_model>
+                    <label>Attachment Filename Format</label>
+                    <comment><![CDATA[Filename Format. %number% will be replaced with the actual order number.]]></comment>
+                </field>
                 <field id="attachagreement"
                        translate="label"
                        type="select"
@@ -54,6 +65,17 @@
                     <tooltip>When set to Yes, your order pdf document will be
                         automatically attached to the order confirmation email.</tooltip>
                 </field>
+                <field id="filenameformat"
+                       translate="label"
+                       type="text"
+                       sortOrder="210"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <frontend_model>Fooman\EmailAttachments\Block\Config\PrintOrderPdf</frontend_model>
+                    <label>Attachment Filename Format</label>
+                    <comment><![CDATA[Filename Format. %number% will be replaced with the actual order number.]]></comment>
+                </field>
                 <field id="attachagreement"
                        translate="label"
                        type="select"
@@ -79,6 +101,16 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <tooltip>When set to Yes, your invoice pdf document will be
                         automatically attached to the invoice email.</tooltip>
+                </field>
+                <field id="filenameformat"
+                       translate="label"
+                       type="text"
+                       sortOrder="210"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attachment Filename Format</label>
+                    <comment><![CDATA[Filename Format. %number% will be replaced with the actual invoice number.]]></comment>
                 </field>
                 <field id="attachagreement"
                        translate="label"
@@ -106,6 +138,16 @@
                     <tooltip>When set to Yes, your invoice pdf document will be
                         automatically attached to the invoice email.</tooltip>
                 </field>
+                <field id="filenameformat"
+                       translate="label"
+                       type="text"
+                       sortOrder="210"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attachment Filename Format</label>
+                    <comment><![CDATA[Filename Format. %number% will be replaced with the actual invoice number.]]></comment>
+                </field>
                 <field id="attachagreement"
                        translate="label"
                        type="select"
@@ -131,6 +173,16 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <tooltip>When set to Yes, your packing slip pdf document will be
                         automatically attached to the shipment email.</tooltip>
+                </field>
+                <field id="filenameformat"
+                       translate="label"
+                       type="text"
+                       sortOrder="210"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attachment Filename Format</label>
+                    <comment><![CDATA[Filename Format. %number% will be replaced with the actual shipment number.]]></comment>
                 </field>
                 <field id="attachagreement"
                        translate="label"
@@ -158,6 +210,16 @@
                     <tooltip>When set to Yes, your packing slip pdf document will be
                         automatically attached to the shipment email.</tooltip>
                 </field>
+                <field id="filenameformat"
+                       translate="label"
+                       type="text"
+                       sortOrder="210"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attachment Filename Format</label>
+                    <comment><![CDATA[Filename Format. %number% will be replaced with the actual shipment number.]]></comment>
+                </field>
                 <field id="attachagreement"
                        translate="label"
                        type="select"
@@ -184,6 +246,16 @@
                     <tooltip>When set to Yes, your packing slip pdf document will be
                         automatically attached to the shipment comment email.</tooltip>
                 </field>
+                <field id="filenameformat"
+                       translate="label"
+                       type="text"
+                       sortOrder="210"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attachment Filename Format</label>
+                    <comment><![CDATA[Filename Format. %number% will be replaced with the actual creditmemo number.]]></comment>
+                </field>
                 <field id="attachagreement"
                        translate="label"
                        type="select"
@@ -209,6 +281,16 @@
                     <label>Attach Credit Memo as PDF</label>
                     <tooltip>When set to Yes, your packing slip pdf document will be
                         automatically attached to the shipment comment email.</tooltip>
+                </field>
+                <field id="filenameformat"
+                       translate="label"
+                       type="text"
+                       sortOrder="210"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Attachment Filename Format</label>
+                    <comment><![CDATA[Filename Format. %number% will be replaced with the actual creditmemo number.]]></comment>
                 </field>
                 <field id="attachagreement"
                        translate="label"

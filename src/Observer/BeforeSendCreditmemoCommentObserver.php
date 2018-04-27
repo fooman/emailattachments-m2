@@ -13,4 +13,5 @@ class BeforeSendCreditmemoCommentObserver extends AbstractSendCreditmemoObserver
 {
     const XML_PATH_ATTACH_PDF = 'sales_email/creditmemo_comment/attachpdf';
     const XML_PATH_ATTACH_AGREEMENT = 'sales_email/creditmemo_comment/attachagreement';
+    const XML_PATH_ATTACH_FILENAMEFORMAT = 'sales_email/creditmemo_comment/filenameformat';
 }
