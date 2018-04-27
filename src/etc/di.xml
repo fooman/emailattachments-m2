@@ -36,6 +36,9 @@
                 type="Fooman\EmailAttachments\Model\Email\Sender\CreditmemoSender"/>
     <preference for="\Magento\Sales\Model\Order\Email\Sender\CreditmemoCommentSender"
                 type="Fooman\EmailAttachments\Model\Email\Sender\CreditmemoCommentSender"/>
+    
+    <preference for="Magento\Framework\Mail\MessageInterface"
+                type="Fooman\EmailAttachments\Model\Email\Message" />
 
     <!-- module introduced preferences -->
     <preference for="Fooman\EmailAttachments\Model\Api\AttachmentContainerInterface"

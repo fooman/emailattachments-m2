@@ -16,13 +16,17 @@ class MailTransportBuilder extends \Magento\Framework\Mail\Template\TransportBui
      */
     public function addAttachment(Api\AttachmentInterface $attachment)
     {
-        $this->message->createAttachment(
-            $attachment->getContent(),
-            $attachment->getMimeType(),
-            $attachment->getDisposition(),
-            $attachment->getEncoding(),
-            $this->encodedFileName($attachment->getFilename())
-        );
+        $this->message->addAttachment($attachment);
+        
+        //this doesn't work in 2.3 as \Magento\Framework\Mail\Message doesn't extend \Zend_Mail
+        //any more, so the createAttachment method is undefined -> fatal error
+//        $this->message->createAttachment(
+//            $attachment->getContent(),
+//            $attachment->getMimeType(),
+//            $attachment->getDisposition(),
+//            $attachment->getEncoding(),
+//            $this->encodedFileName($attachment->getFilename())
+//        );
     }
 
     protected function encodedFileName($subject)
