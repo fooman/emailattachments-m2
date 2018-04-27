@@ -23,7 +23,8 @@ class EmailSender extends \Magento\Sales\Model\Order\Invoice\Sender\EmailSender
         \Magento\Payment\Helper\Data $paymentHelper,
         \Magento\Sales\Model\ResourceModel\Order\Invoice $invoiceResource,
         \Magento\Framework\App\Config\ScopeConfigInterface $globalConfig,
-        \Magento\Framework\Event\ManagerInterface $eventManager
+        \Magento\Framework\Event\ManagerInterface $eventManager,
+        \Fooman\EmailAttachments\Model\AttachmentContainer $attachmentContainer
     ) {
         parent::__construct($templateContainer, $identityContainer, $senderBuilderFactory, $logger, $addressRenderer,
             $paymentHelper, $invoiceResource, $globalConfig, $eventManager);
