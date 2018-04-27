@@ -106,9 +106,9 @@ abstract class AbstractObserver implements \Magento\Framework\Event\ObserverInte
                 \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
                 $item->getStoreId()
             );
-      $id = $item->getIncrementId();
+      $incrementId = $item->getIncrementId();
             
-      $filename = str_replace('%number%', $id, $filenamemask);
+      $filename = str_replace('%number%', $incrementId, $filenamemask);
       return($filename);
     }
 }
