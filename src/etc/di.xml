@@ -24,6 +24,10 @@
 
     <preference for="\Magento\Sales\Model\Order\Email\Sender\InvoiceSender"
                 type="Fooman\EmailAttachments\Model\Email\Sender\InvoiceSender"/>
+
+    <preference for="\Magento\Sales\Model\Order\Invoice\Sender\EmailSender"
+                type="\Fooman\EmailAttachments\Model\Order\Invoice\Sender\EmailSender"/>
+
     <preference for="\Magento\Sales\Model\Order\Email\Sender\InvoiceCommentSender"
                 type="Fooman\EmailAttachments\Model\Email\Sender\InvoiceCommentSender"/>
 
@@ -38,6 +42,10 @@
 
     <preference for="\Magento\Sales\Model\Order\Email\Sender\CreditmemoSender"
                 type="Fooman\EmailAttachments\Model\Email\Sender\CreditmemoSender"/>
+
+    <preference for="\Magento\Sales\Model\Order\Creditmemo\Sender\EmailSender"
+                type="\Fooman\EmailAttachments\Model\Order\Creditmemo\Sender\EmailSender"/>
+
     <preference for="\Magento\Sales\Model\Order\Email\Sender\CreditmemoCommentSender"
                 type="Fooman\EmailAttachments\Model\Email\Sender\CreditmemoCommentSender"/>
 
