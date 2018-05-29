@@ -1,5 +1,10 @@
 # Change Log
 
+## [2.1.0] 2017-09-01
+### Added
+- Support for PHP 7.1
+- Support for Magento 2.2.0
+
 ## [2.0.8] 2017-06-02
 ### Fixed
 - Make CheckoutAgreements dependency explicit

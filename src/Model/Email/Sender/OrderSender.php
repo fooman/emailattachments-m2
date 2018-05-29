@@ -42,7 +42,6 @@ class OrderSender extends \Magento\Sales\Model\Order\Email\Sender\OrderSender
         $this->attachmentContainer = $attachmentContainer;
     }
 
-
     public function send(\Magento\Sales\Model\Order $order, $forceSyncMode = false)
     {
         $this->eventManager->dispatch(

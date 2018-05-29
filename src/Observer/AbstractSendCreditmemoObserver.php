@@ -35,7 +35,6 @@ class AbstractSendCreditmemoObserver extends AbstractObserver
             );
         }
 
-
         if ($this->scopeConfig->getValue(
             static::XML_PATH_ATTACH_AGREEMENT,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,

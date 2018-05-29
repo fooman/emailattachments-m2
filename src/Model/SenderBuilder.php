@@ -40,7 +40,6 @@ class SenderBuilder extends \Magento\Sales\Model\Order\Email\SenderBuilder
         return $this->attachmentContainer;
     }
 
-
     /**
      * attach our attachments from the current sender to the message
      */

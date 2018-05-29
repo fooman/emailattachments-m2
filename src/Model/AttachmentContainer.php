@@ -18,7 +18,7 @@ class AttachmentContainer implements Api\AttachmentContainerInterface
      */
     public function hasAttachments()
     {
-        return sizeof($this->attachments) >= 1;
+        return !empty($this->attachments);
     }
 
     /**

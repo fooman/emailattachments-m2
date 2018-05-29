@@ -9,7 +9,7 @@
  */
 namespace Fooman\EmailAttachments\Observer;
 
-class Common extends \PHPUnit_Framework_TestCase
+class Common extends \PHPUnit\Framework\TestCase
 {
     protected $mailhogClient;
     protected $objectManager;
@@ -21,6 +21,14 @@ class Common extends \PHPUnit_Framework_TestCase
         parent::setUp();
         $this->mailhogClient = new \Zend_Http_Client();
         $this->objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
+
+        $this->objectManager->configure(
+            [
+                'preferences' =>
+                    ['Magento\Framework\Mail\Template\TransportBuilder'
+                    => 'Fooman\EmailAttachments\Model\MailTransportBuilder']
+            ]
+        );
     }
 
     public function getLastEmail()

@@ -35,8 +35,10 @@ class PrintOrderPdf extends \Magento\Config\Block\System\Config\Form\Field
     {
         if ($this->moduleList->has('Fooman_PrintOrderPdf')) {
             return parent::_getElementHtml($element);
-        } else {
-            return __('This functionality requires the <a href="%1" target="_blank">Print Order Pdf</a> extension.', self::EXT_URL);
         }
+        return __(
+            'This functionality requires the <a href="%1" target="_blank">Print Order Pdf</a> extension.',
+            self::EXT_URL
+        );
     }
 }
