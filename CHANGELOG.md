@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Major rewrite - removed all preferences, use plugins on TransportBuilder and TransportFactory instead
 
 ## [3.0.1] 2018-03-20
 ### Changed
