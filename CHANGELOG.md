@@ -1,6 +1,10 @@
 # Change Log
 
-## [3.0.2] 2018-07-20
+## [Unreleased]
+### Changed
+- Code Quality improvement - use class constants
+### Fixed
+- Failing integration test for replaced pdfs
 
 ## [3.0.2] 2018-06-25
 ### Changed
