@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Reorganised unit tests
 
 ## [3.0.3] 2018-07-20
 ### Changed
