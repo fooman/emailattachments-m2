@@ -1,6 +1,12 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Add compatibility with Magento 2.3.0 and handle upgrade of Zend_Mail, for earlier versions of Magento use
+previous versions
+- Use newer php features (minimum 7.1)
+### Added
+- Ability to customise affect the final filename
 
 ## [3.0.4] 2018-11-06
 ### Changed
