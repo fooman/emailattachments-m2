@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.0.4] 2018-11-06
 ### Changed
 - Reorganised unit tests
 
