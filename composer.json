@@ -6,7 +6,7 @@
     "require": 
     {
         "php": "~7.1.3||~7.2.0",
-	"magento/magento2-base": "2.3.0-beta32 - 2.3.0",
+        "magento/framework": "102.0.0-beta32 - 102.0.0",
         "fooman/emailattachments-implementation-m2":"105.0.1"
     },
     "type": "metapackage",
