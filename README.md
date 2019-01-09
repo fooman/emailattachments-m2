@@ -1,7 +1,7 @@
 # Fooman Email Attachments 
 ## Extension for Magento 2
 
-A User Manual can be found (here) [https://magento2-support.fooman.co.nz/collection/1001-email-attachments-magento-2]
+A User Manual can be found [here](https://magento2-support.fooman.co.nz/collection/1001-email-attachments-magento-2)
 
 ## Installation
 
