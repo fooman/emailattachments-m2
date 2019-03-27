@@ -7,7 +7,7 @@
     {
         "php": "~7.1.3||~7.2.0",
         "magento/framework": "102.0.0 - 102.0.1",
-        "fooman/emailattachments-implementation-m2":"105.0.2"
+        "fooman/emailattachments-implementation-m2":"105.0.3"
     },
     "type": "metapackage",
     "suggest": 
