@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [3.1.3] - 2019-03-28
 ### Added
 - Compatibility with Magento 2.2.8
