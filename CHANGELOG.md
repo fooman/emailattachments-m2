@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Fixed
+- Reverse adding return types to maintain 2.2.8 compatibility
 
 ## [3.1.3] - 2019-03-28
 ### Added
