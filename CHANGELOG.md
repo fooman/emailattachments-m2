@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Fixed
+- Reverse additional return types
 
 ## [3.1.4] - 2019-04-09
 ### Fixed
