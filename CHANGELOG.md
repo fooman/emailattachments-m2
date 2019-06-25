@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+### Added
+- Support for Magento 2.3.2 and 2.2.9
+
 ## [3.1.6] - 2019-05-10
 ### Changed
 - Adopt latest Magento Coding Standards
