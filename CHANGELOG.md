@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Adjust for changed core behaviour around plain text emails
 
 ## [3.1.7] - 2019-06-26
 ### Added
