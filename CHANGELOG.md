@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+### Added
+- Support for Magento 2.3.2-p1
+
 ## [3.1.8] - 2019-08-16
 ### Changed
 - Adjust for changed core behaviour around plain text emails
