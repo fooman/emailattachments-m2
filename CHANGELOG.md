@@ -1,6 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Refactor for new email handling in Magento 2.3.3
+- Use previous releases for earlier versions of Magento
+- Removed support for Php 7.0
 
 ## [3.1.9] - 2019-10-03
 ### Added
