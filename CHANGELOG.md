@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [3.2.0] - 2019-10-05
 ### Changed
 - Refactor for new email handling in Magento 2.3.3
