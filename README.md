@@ -9,7 +9,7 @@ This package is available via packagist.org. Please use Composer to install the 
 
 ```
 bin/magento deploy:mode:set developer (if you are in production mode)
-composer require fooman/emailattachments-m2
+composer require fooman/emailattachments-m2:^3.0
 bin/magento module:enable --clear-static-content Fooman_EmailAttachments
 bin/magento setup:upgrade
 
