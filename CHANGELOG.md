@@ -1,4 +1,6 @@
 # Change Log
+## [Unreleased]
+- Support for Magento 2.2.10
 
 ## [3.1.9] - 2019-10-03
 ### Added
