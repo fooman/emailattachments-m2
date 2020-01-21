@@ -1,6 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Ability to attach invoices to the shipping confirmation email
+### Changed
+- Updated comments for latest Magento Coding Standards
 
 ## [3.2.0] - 2019-10-05
 ### Changed
