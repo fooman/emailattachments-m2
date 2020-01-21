@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.3.0] - 2020-01-21
 ### Added
 - Ability to attach invoices to the shipping confirmation email
 ### Changed
