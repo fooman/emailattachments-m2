@@ -1,5 +1,5 @@
 # Change Log
-## [Unreleased]
+## [3.1.11] - 2020-01-25
 ### Added
 - Support for Magento 2.2.11
 
