@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Support for Magento 2.3.5
 
 ## [3.3.1] - 2020-01-24
 ### Added
