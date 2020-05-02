@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.3.3] - 2020-05-02
 ### Fixed
 - Reworked email identification to strictly cover supported types only
 
