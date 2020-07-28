@@ -2,16 +2,14 @@
     "name": "fooman/emailattachments-m2",
     "license": "OSL-3.0",
     "description": "Automatically attach pdf and terms and conditions documents to outgoing sales emails.",
-    "version": "3.3.4",
-    "require": 
-    {
+    "version": "3.3.5",
+    "require": {
         "php": "~7.1.0|~7.2.0|~7.3.0|~7.4.0",
         "magento/framework": ">= 102.0.3 < 102.0.6 | >=103.0.0 < 103.0.1",
-        "fooman/emailattachments-implementation-m2":"107.1.0"
+        "fooman/emailattachments-implementation-m2": "107.1.0"
     },
     "type": "metapackage",
-    "suggest": 
-    {
+    "suggest": {
         "fooman/printorderpdf-m2": "Allows attaching the order confirmation pdf to the order confirmation email",
         "fooman/pdfcustomiser-m2": "Allows to easily customise the sales pdfs while also reducing file sizes "
     }
