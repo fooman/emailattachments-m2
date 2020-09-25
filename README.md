@@ -19,4 +19,4 @@ bin/magento deploy:mode:set production
 
 ## Depending on Email Attachments 
 If you are using Email Attachments to build functionality on top of please require the implementation package
-`composer require emailattachments-implementation-m2` instead as only that package will be semantically versioned.
+`composer require fooman/emailattachments-implementation-m2` instead as only that package will be semantically versioned.
