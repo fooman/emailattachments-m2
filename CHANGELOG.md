@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.3.6] - 2021-02-02
 ### Added
 - Support for Magento 2.4.2
 
