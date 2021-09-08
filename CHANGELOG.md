@@ -3,6 +3,8 @@
 ## [Unreleased]
 ### Changed
 - Switch to Laminas Mime package, minimum Magento version is now 2.3.5
+### Fixed
+- Don't send the same named attachment twice
 
 ## [3.3.8] - 2021-07-30
 ### Added
