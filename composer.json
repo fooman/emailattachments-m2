@@ -4,9 +4,9 @@
     "description": "Automatically attach pdf and terms and conditions documents to outgoing sales emails.",
     "version": "3.3.10",
     "require": {
-        "php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0",
-        "magento/framework": ">= 102.0.3 < 102.0.8 || >=103.0.0 < 103.0.4",
-        "fooman/emailattachments-implementation-m2": "107.2.0"
+        "php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0||~8.0.0||~8.1.0",
+        "magento/framework": ">= 102.0.3 < 102.0.8 || >=103.0.0 < 103.0.5",
+        "fooman/emailattachments-implementation-m2": "107.2.1"
     },
     "type": "metapackage",
     "suggest": {
