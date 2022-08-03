@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.3.11] - 2022-08-03
 ### Added
 - Support for Magento 2.4.5
 
