@@ -2,7 +2,7 @@
     "name": "fooman/emailattachments-m2",
     "license": "OSL-3.0",
     "description": "Automatically attach pdf and terms and conditions documents to outgoing sales emails.",
-    "version": "3.5.0",
+    "version": "3.5.1",
     "require": {
         "php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0||~8.0.0||~8.1.0||~8.2.0||~8.3.0",
         "magento/framework": ">= 102.0.3 < 102.0.8 || >=103.0.0 < 103.0.8",
