@@ -1,6 +1,11 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Support for Magento 2.4.9
+- Support for Php 8.5
+### Changed
+- Lowest supported versions are now Magento 2.4.4-p13 and php 8.1 - use previous versions for older Magento versions
 
 ## [3.6.1] - 2025-04-10
 ### Fixed
