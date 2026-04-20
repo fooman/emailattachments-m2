@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [3.7.0] - 2026-04-20
 ### Added
 - Support for Magento 2.4.9
